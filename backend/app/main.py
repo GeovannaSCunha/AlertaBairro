@@ -98,6 +98,9 @@ def criar_app(config: Config | None = None) -> FastAPI:
 
     def rota_template(request: Request) -> str:
         """Caminho da rota com parâmetros ({relato_id}), para não explodir a cardinalidade das métricas."""
+        rota_resolvida = request.scope.get("route")  # preenchido pelo roteador depois do call_next
+        if getattr(rota_resolvida, "path", None):
+            return rota_resolvida.path
         for rota in app.router.routes:
             correspondencia, _ = rota.matches(request.scope)
             if correspondencia == Match.FULL:
