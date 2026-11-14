@@ -178,8 +178,13 @@ def test_metricas_prometheus(cliente):
     cliente.get("/api/v1/kpis")
     cliente.get("/api/v1/relatos/00000000-0000-0000-0000-000000000000/foto")
     texto = cliente.get("/metrics").text
-    assert 'http_requests_total{metodo="GET",rota="/api/v1/kpis",status="200"}' in texto
-    assert 'rota="/api/v1/relatos/{relato_id}/foto"' in texto
+    linhas = [l for l in texto.splitlines() if l.startswith("http_requests_total{")]
+
+    def tem(*rotulos: str) -> bool:
+        return any(all(r in l for r in rotulos) for l in linhas)
+
+    assert tem('metodo="GET"', 'rota="/api/v1/kpis"', 'status="200"'), linhas
+    assert tem('rota="/api/v1/relatos/{relato_id}/foto"', 'status="404"'), linhas
     assert "alertabairro_consultas_dados_total" in texto
     assert "http_requests_em_andamento" in texto
 
