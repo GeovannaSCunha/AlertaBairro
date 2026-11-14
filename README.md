@@ -10,8 +10,11 @@ Projeto CitizenTech da Global Solution FIAP 2026.2 (Engenharia de Software, 4º 
 
 | Nome completo | RM |
 | --- | --- |
-| Geovanna Silva Cunha | _RM a preencher_ |
-| _Integrante_ | _RM_ |
+| Bianca Carvalho Dancs Firsoff | RM 551645 |
+| Geovanna Silva Cunha | RM 97736 |
+| Pedro Gava | RM 551043 |
+| Victor Camargo Maciel | RM 98384 |
+
 
 ## Ficha Técnica do MVP
 
