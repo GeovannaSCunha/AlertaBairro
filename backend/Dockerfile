@@ -1,7 +1,8 @@
 # syntax=docker/dockerfile:1.7
 # API FastAPI: imagem slim, dependências em camada separada, usuário não root, sem segredos na imagem.
 
-FROM python:3.12-slim AS base
+
+FROM python:3.12-slim-bookworm AS base
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     PIP_NO_CACHE_DIR=1 \
