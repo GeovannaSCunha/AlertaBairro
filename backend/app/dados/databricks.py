@@ -59,7 +59,7 @@ def linhas_do_resultado(obj: dict[str, Any]) -> list[dict[str, Any]]:
     tipos = [c.get("type_name") for c in colunas]
     linhas = resultado.get("data_array") or []
     return [
-        {nome: converter_valor(valor, tipo) for nome, valor, tipo in zip(nomes, linha, tipos)}
+        {nome: converter_valor(valor, tipo) for nome, valor, tipo in zip(nomes, linha, tipos, strict=False)}
         for linha in linhas
     ]
 

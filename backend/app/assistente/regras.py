@@ -102,7 +102,6 @@ def responder(pergunta: str, ctx: dict[str, Any], achados: list[Achado], fontes_
     kpis = ctx["kpis"]
     subs = ctx["subprefeituras"]["itens"]
     mensal = ctx["mensal"]
-    clima = ctx["clima"]
     indice = ctx.get("indice")
 
     def fonte_de(tid: str) -> list[dict[str, str]]:

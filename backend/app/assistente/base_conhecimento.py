@@ -198,44 +198,36 @@ def trechos_de_dados(
     return trechos
 
 
+def _trecho_de_secao(arquivo: Path, numero: int, titulo: str | None, linhas: list[str], fonte: str) -> Trecho | None:
+    texto = " ".join(l.strip() for l in linhas if l.strip())
+    if not titulo or not texto:
+        return None
+    return Trecho(id=f"doc:{arquivo.stem}#{numero}", titulo=titulo, texto=texto, fonte=fonte, tipo="documento")
+
+
 def trechos_de_documentos(pasta: str | Path) -> list[Trecho]:
+    """Um trecho por seção "## " de cada arquivo Markdown; a linha "Fonte:" vale para o arquivo todo."""
     trechos: list[Trecho] = []
     base = Path(pasta)
     if not base.exists():
         return trechos
     for arquivo in sorted(base.glob("*.md")):
-        linhas = arquivo.read_text(encoding="utf-8").splitlines()
         titulo_doc = arquivo.stem
         fonte = f"Documento {arquivo.name}"
-        secao_titulo: str | None = None
-        secao_linhas: list[str] = []
-        contador = 0
-
-        def fechar() -> None:
-            nonlocal contador
-            texto = " ".join(l.strip() for l in secao_linhas if l.strip())
-            if secao_titulo and texto:
-                contador += 1
-                trechos.append(
-                    Trecho(
-                        id=f"doc:{arquivo.stem}#{contador}",
-                        titulo=secao_titulo,
-                        texto=texto,
-                        fonte=fonte,
-                        tipo="documento",
-                    )
-                )
-
-        for linha in linhas:
+        secoes: list[tuple[str, list[str]]] = []
+        for linha in arquivo.read_text(encoding="utf-8").splitlines():
             if linha.startswith("# "):
                 titulo_doc = linha[2:].strip()
             elif linha.lower().startswith("fonte:"):
                 fonte = f"{titulo_doc} — {linha.split(':', 1)[1].strip()}"
             elif linha.startswith("## "):
-                fechar()
-                secao_titulo = linha[3:].strip()
-                secao_linhas = []
-            else:
-                secao_linhas.append(linha)
-        fechar()
+                secoes.append((linha[3:].strip(), []))
+            elif secoes:
+                secoes[-1][1].append(linha)
+        numero = 0
+        for titulo, linhas in secoes:
+            trecho = _trecho_de_secao(arquivo, numero + 1, titulo, linhas, fonte)
+            if trecho:
+                numero += 1
+                trechos.append(trecho)
     return trechos

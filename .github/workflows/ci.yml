@@ -63,15 +63,11 @@ jobs:
         run: |
           docker run --rm -v "${PWD}:/src" -w /src semgrep/semgrep \
             semgrep scan --config p/default --error --metrics=off
-      - name: Trivy (dependências e configuração)
-        uses: aquasecurity/trivy-action@0.28.0
-        with:
-          scan-type: fs
-          scan-ref: .
-          scanners: vuln,secret,misconfig
-          severity: HIGH,CRITICAL
-          ignore-unfixed: true
-          exit-code: "1"
+      - name: Trivy (dependências, segredos e configuração)
+        run: |
+          docker run --rm -v "${PWD}:/src" aquasec/trivy:latest fs \
+            --scanners vuln,secret,misconfig --severity HIGH,CRITICAL \
+            --ignore-unfixed --exit-code 1 --no-progress /src
 
   imagens:
     name: Imagens Docker (build + Trivy)
@@ -81,17 +77,9 @@ jobs:
       - uses: actions/checkout@v4
       - run: docker build -t alertabairro-api:ci backend
       - run: docker build -t alertabairro-web:ci frontend
-      - name: Trivy na imagem da API
-        uses: aquasecurity/trivy-action@0.28.0
-        with:
-          image-ref: alertabairro-api:ci
-          severity: HIGH,CRITICAL
-          ignore-unfixed: true
-          exit-code: "1"
-      - name: Trivy na imagem web
-        uses: aquasecurity/trivy-action@0.28.0
-        with:
-          image-ref: alertabairro-web:ci
-          severity: HIGH,CRITICAL
-          ignore-unfixed: true
-          exit-code: "1"
+      - name: Trivy nas imagens
+        run: |
+          for imagem in alertabairro-api:ci alertabairro-web:ci; do
+            docker run --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy:latest image \
+              --severity HIGH,CRITICAL --ignore-unfixed --exit-code 1 --no-progress "$imagem"
+          done
