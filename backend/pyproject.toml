@@ -1,0 +1,27 @@
+[project]
+name = "alertabairro-api"
+version = "1.0.0"
+description = "API do MVP AlertaBairro — Global Solution FIAP 2026.2"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 140
+target-version = "py311"
+
+[tool.ruff.lint]
+# E/F: erros e nomes não usados; B: armadilhas comuns; S: regras de segurança (bandit).
+select = ["E", "F", "B", "S"]
+# S101 assert; B008 Query()/Form() como padrão (estilo FastAPI); E741 nomes curtos em compreensões.
+ignore = ["S101", "B008", "E741"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S", "E501"]
+# SQL montado só com identificadores validados em config.py e inteiros; nenhuma entrada do usuário.
+"app/dados/consultas.py" = ["S608"]
+# urlopen recebe URLs da configuração do servidor (Databricks https validado; LLM local).
+"app/dados/databricks.py" = ["S310"]
+"app/assistente/llm.py" = ["S310"]

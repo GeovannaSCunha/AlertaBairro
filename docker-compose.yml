@@ -1,0 +1,75 @@
+# AlertaBairro — stack local
+#   docker compose up --build                              → web em http://localhost:3000, API em http://localhost:8000/api/docs
+#   docker compose --profile observabilidade up --build    → + Prometheus (9090) e Grafana (3001)
+#
+# Segredos (Databricks, ADMIN_TOKEN, LLM) ficam no arquivo .env, que não vai para o Git. Veja .env.example.
+
+services:
+  api:
+    build: ./backend
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      CONFIAR_PROXY: "true"
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - api-var:/app/var
+    extra_hosts:
+      - "host.docker.internal:host-gateway" # para alcançar um Ollama rodando no computador
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    restart: unless-stopped
+
+  web:
+    build: ./frontend
+    environment:
+      API_URL: http://api:8000
+    ports:
+      - "127.0.0.1:3000:3000"
+    depends_on:
+      api:
+        condition: service_healthy
+    read_only: true
+    tmpfs:
+      - /tmp
+      - /app/.next/cache:mode=1777
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    restart: unless-stopped
+
+  prometheus:
+    image: prom/prometheus:v3.1.0
+    profiles: ["observabilidade"]
+    volumes:
+      - ./observabilidade/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - ./observabilidade/alertas.yml:/etc/prometheus/alertas.yml:ro
+    ports:
+      - "127.0.0.1:9090:9090"
+    depends_on:
+      - api
+
+  grafana:
+    image: grafana/grafana:11.4.0
+    profiles: ["observabilidade"]
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_SENHA:-troque-esta-senha}
+      GF_USERS_ALLOW_SIGN_UP: "false"
+    volumes:
+      - ./observabilidade/grafana/provisionamento:/etc/grafana/provisioning:ro
+      - ./observabilidade/grafana/paineis:/var/lib/grafana/dashboards:ro
+    ports:
+      - "127.0.0.1:3001:3000"
+    depends_on:
+      - prometheus
+
+volumes:
+  api-var:
