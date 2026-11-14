@@ -47,11 +47,19 @@ def sem_acentos(texto: str) -> str:
     return "".join(c for c in unicodedata.normalize("NFKD", texto) if not unicodedata.combining(c))
 
 
+# A Prata do GeoSampa traz a sigla antes do nome ("MP - SAO MIGUEL PAULISTA"); a Ouro não.
+_PREFIXO_SIGLA = re.compile(r"^\s*[A-Za-z]{1,3}\s*[-–]\s+")
+
+
+def sem_sigla(texto: str) -> str:
+    return _PREFIXO_SIGLA.sub("", texto)
+
+
 def chave(texto: str | None) -> str:
-    """Chave de comparação: sem acento, maiúscula, apenas letras e números."""
+    """Chave de comparação: sem sigla inicial, sem acento, maiúscula, apenas letras e números."""
     if not texto:
         return ""
-    return re.sub(r"[^A-Z0-9]", "", sem_acentos(texto).upper())
+    return re.sub(r"[^A-Z0-9]", "", sem_acentos(sem_sigla(texto)).upper())
 
 
 _EXIBICAO = {chave(nome): nome for nome in SUBPREFEITURAS_SP}
@@ -67,6 +75,7 @@ def nome_exibicao(nome: str | None) -> str:
     conhecido = _EXIBICAO.get(chave(nome))
     if conhecido:
         return conhecido
+    nome = sem_sigla(nome)
     if nome.isupper():
         return nome.title()
     return nome
