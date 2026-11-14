@@ -20,7 +20,11 @@ ENV NODE_ENV=production \
     PORT=3000 \
     HOSTNAME=0.0.0.0
 # Aplica correções de segurança do Alpine publicadas depois da imagem oficial
-RUN apk upgrade --no-cache && addgroup -S app && adduser -S -G app app
+# O servidor standalone não usa npm: removê-lo tira da imagem as dependências vulneráveis que vêm com ele
+RUN apk upgrade --no-cache \
+ && rm -rf /usr/local/lib/node_modules/npm /usr/local/lib/node_modules/corepack \
+           /usr/local/bin/npm /usr/local/bin/npx /usr/local/bin/corepack \
+ && addgroup -S app && adduser -S -G app app
 COPY --from=build --chown=app:app /app/.next/standalone ./
 COPY --from=build --chown=app:app /app/.next/static ./.next/static
 USER app
