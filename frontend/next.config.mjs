@@ -1,11 +1,11 @@
 const dev = process.env.NODE_ENV !== "production";
 
-// Política de segurança de conteúdo: só recursos do próprio site e os blocos do mapa (CARTO/OpenStreetMap).
+// Política de segurança de conteúdo: só recursos do próprio site e os blocos do mapa (OpenStreetMap).
 const csp = [
   "default-src 'self'",
   `script-src 'self' 'unsafe-inline'${dev ? " 'unsafe-eval'" : ""}`,
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob: https://*.basemaps.cartocdn.com",
+  "img-src 'self' data: blob: https://tile.openstreetmap.org",
   "font-src 'self'",
   "connect-src 'self'",
   "frame-ancestors 'none'",

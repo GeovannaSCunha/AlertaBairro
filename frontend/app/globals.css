@@ -956,6 +956,11 @@ th.num {
   stroke: var(--asfalto);
 }
 
+/* OpenStreetMap não tem estilo escuro: inverte os blocos para combinar com o tema */
+[data-tema="escuro"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) brightness(0.92) contrast(0.88) saturate(0.6);
+}
+
 .leaflet-container {
   font-family: var(--fonte);
   background: var(--nuvem-2);

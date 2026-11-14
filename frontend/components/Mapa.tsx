@@ -29,10 +29,9 @@ export type PropsMapa = {
 const CENTRO_SP: L.LatLngTuple = [-23.55, -46.63];
 const LIMITES_SP = L.latLngBounds([-24.1, -47.0], [-23.25, -46.2]);
 
-function urlTiles(): string {
-  const escuro = document.documentElement.dataset.tema === "escuro";
-  return `https://{s}.basemaps.cartocdn.com/${escuro ? "dark_all" : "light_all"}/{z}/{x}/{y}{r}.png`;
-}
+// Blocos do OpenStreetMap: gratuitos, sem chave (política de uso: atribuição visível e uso moderado).
+// No tema escuro, o CSS inverte as cores dos blocos (.leaflet-tile-pane em globals.css).
+const URL_TILES = "https://tile.openstreetmap.org/{z}/{x}/{y}.png";
 
 /** Conteúdo do popup montado com textContent: relatos vêm de moradores, então nada é interpretado como HTML. */
 function conteudoPopup(m: Marcador): HTMLElement {
@@ -76,7 +75,6 @@ export default function Mapa({
   const elemento = useRef<HTMLDivElement>(null);
   const mapa = useRef<L.Map | null>(null);
   const camada = useRef<L.LayerGroup | null>(null);
-  const tiles = useRef<L.TileLayer | null>(null);
   const pinoRef = useRef<L.CircleMarker | null>(null);
   const porId = useRef(new Map<string, L.CircleMarker>());
   const aoClicar = useRef(aoClicarMapa);
@@ -93,20 +91,15 @@ export default function Mapa({
       maxBoundsViscosity: 0.8,
       preferCanvas: false,
     });
-    tiles.current = L.tileLayer(urlTiles(), {
-      attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
-      subdomains: "abcd",
+    L.tileLayer(URL_TILES, {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">colaboradores do OpenStreetMap</a>',
       maxZoom: 19,
     }).addTo(m);
     camada.current = L.layerGroup().addTo(m);
     m.on("click", (e: L.LeafletMouseEvent) => aoClicar.current?.(e.latlng.lat, e.latlng.lng));
     mapa.current = m;
 
-    const trocarTema = () => tiles.current?.setUrl(urlTiles());
-    window.addEventListener("alertabairro:tema", trocarTema);
     return () => {
-      window.removeEventListener("alertabairro:tema", trocarTema);
       m.remove();
       mapa.current = null;
     };
