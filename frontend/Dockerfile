@@ -19,7 +19,8 @@ ENV NODE_ENV=production \
     NEXT_TELEMETRY_DISABLED=1 \
     PORT=3000 \
     HOSTNAME=0.0.0.0
-RUN addgroup -S app && adduser -S -G app app
+# Aplica correções de segurança do Alpine publicadas depois da imagem oficial
+RUN apk upgrade --no-cache && addgroup -S app && adduser -S -G app app
 COPY --from=build --chown=app:app /app/.next/standalone ./
 COPY --from=build --chown=app:app /app/.next/static ./.next/static
 USER app

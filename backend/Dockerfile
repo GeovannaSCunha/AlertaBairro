@@ -10,6 +10,9 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     UPLOADS_DIR=/app/var/uploads
 WORKDIR /app
 
+# Aplica correções de segurança do sistema base (ex.: zlib) publicadas depois da imagem oficial
+RUN apt-get update && apt-get upgrade -y && rm -rf /var/lib/apt/lists/*
+
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 

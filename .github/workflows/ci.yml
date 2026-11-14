@@ -80,7 +80,9 @@ jobs:
       - run: docker build -t alertabairro-web:ci frontend
       - name: Trivy nas imagens
         run: |
+          falhou=0
           for imagem in alertabairro-api:ci alertabairro-web:ci; do
             docker run --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy:latest image \
-              --severity HIGH,CRITICAL --ignore-unfixed --exit-code 1 --no-progress "$imagem"
+              --severity HIGH,CRITICAL --ignore-unfixed --exit-code 1 --no-progress "$imagem" || falhou=1
           done
+          exit $falhou
