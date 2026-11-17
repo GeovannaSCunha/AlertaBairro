@@ -44,7 +44,7 @@ def notificar_falha(context):
                 headers={"Content-Type": "application/json"},
                 method="POST",
             )
-            urlopen(requisicao, timeout=15).close()  # nosemgrep: webhook vem de Variable definida pelo administrador do Airflow
+            urlopen(requisicao, timeout=15).close()  # nosemgrep - webhook vem de Variable definida pelo administrador do Airflow
         except Exception as erro:  # a notificação nunca derruba o DAG
             log.warning("Não foi possível enviar a notificação: %s", erro)
 
@@ -56,7 +56,7 @@ def consultar_api(url, parametros):
         headers={"User-Agent": "AlertaBairro-FIAP/1.0"}
     )
 
-    with urlopen(requisicao, timeout=90) as resposta:  # nosemgrep: URL fixa do código (Open-Meteo/GeoSampa), sem entrada de usuário
+    with urlopen(requisicao, timeout=90) as resposta:  # nosemgrep - URL fixa do código (Open-Meteo/GeoSampa), sem entrada de usuário
         return json.load(resposta)
 
 
