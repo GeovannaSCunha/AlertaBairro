@@ -1,0 +1,226 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "risco_ocorrencia_alagamento.1458",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.5368208,
+          -23.60621642
+        ]
+      },
+      "geometry_name": "ge_ponto",
+      "properties": {
+        "cd_identificador": "1458",
+        "dt_ocorrencia": "2026-04-01Z",
+        "dc_tipo_ocorrencia": "ALAGAMENTO",
+        "nm_distrito": null,
+        "dt_carga": "2026-11-16Z",
+        "nm_subprefeitura": "VP - VILA PRUDENTE",
+        "sg_fonte_original": "SIGRC"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "risco_ocorrencia_alagamento.1472",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.5301669,
+          -23.61379432
+        ]
+      },
+      "geometry_name": "ge_ponto",
+      "properties": {
+        "cd_identificador": "1472",
+        "dt_ocorrencia": "2026-04-02Z",
+        "dc_tipo_ocorrencia": "ALAGAMENTO",
+        "nm_distrito": null,
+        "dt_carga": "2026-11-16Z",
+        "nm_subprefeitura": "VP - VILA PRUDENTE",
+        "sg_fonte_original": "SIGRC"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "risco_ocorrencia_alagamento.1494",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.7458079,
+          -23.57281682
+        ]
+      },
+      "geometry_name": "ge_ponto",
+      "properties": {
+        "cd_identificador": "1494",
+        "dt_ocorrencia": "2026-04-07Z",
+        "dc_tipo_ocorrencia": "ALAGAMENTO",
+        "nm_distrito": null,
+        "dt_carga": "2026-11-16Z",
+        "nm_subprefeitura": "BT - BUTANTA",
+        "sg_fonte_original": "SIGRC"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "risco_ocorrencia_alagamento.1525",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.5570526,
+          -23.53937412
+        ]
+      },
+      "geometry_name": "ge_ponto",
+      "properties": {
+        "cd_identificador": "1525",
+        "dt_ocorrencia": "2026-04-14Z",
+        "dc_tipo_ocorrencia": "ALAGAMENTO",
+        "nm_distrito": null,
+        "dt_carga": "2026-11-16Z",
+        "nm_subprefeitura": "AF - ARICANDUVA/VILA FORMOSA",
+        "sg_fonte_original": "SIGRC"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "risco_ocorrencia_alagamento.1530",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.5513291,
+          -23.53742072
+        ]
+      },
+      "geometry_name": "ge_ponto",
+      "properties": {
+        "cd_identificador": "1530",
+        "dt_ocorrencia": "2026-04-15Z",
+        "dc_tipo_ocorrencia": "ALAGAMENTO",
+        "nm_distrito": null,
+        "dt_carga": "2026-11-16Z",
+        "nm_subprefeitura": "AF - ARICANDUVA/VILA FORMOSA",
+        "sg_fonte_original": "SIGRC"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "risco_ocorrencia_alagamento.2239",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.799272,
+          -23.60131592
+        ]
+      },
+      "geometry_name": "ge_ponto",
+      "properties": {
+        "cd_identificador": "2239",
+        "dt_ocorrencia": "2026-09-05Z",
+        "dc_tipo_ocorrencia": "ALAGAMENTO",
+        "nm_distrito": null,
+        "dt_carga": "2026-11-16Z",
+        "nm_subprefeitura": "BT - BUTANTA",
+        "sg_fonte_original": "SIGRC"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "risco_ocorrencia_alagamento.1691",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.7641601,
+          -23.57879262
+        ]
+      },
+      "geometry_name": "ge_ponto",
+      "properties": {
+        "cd_identificador": "1691",
+        "dt_ocorrencia": "2026-06-24Z",
+        "dc_tipo_ocorrencia": "ALAGAMENTO",
+        "nm_distrito": null,
+        "dt_carga": "2026-11-16Z",
+        "nm_subprefeitura": "BT - BUTANTA",
+        "sg_fonte_original": "SIGRC"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "risco_ocorrencia_alagamento.1701",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.7851052,
+          -23.68197472
+        ]
+      },
+      "geometry_name": "ge_ponto",
+      "properties": {
+        "cd_identificador": "1701",
+        "dt_ocorrencia": "2026-06-23Z",
+        "dc_tipo_ocorrencia": "ALAGAMENTO",
+        "nm_distrito": null,
+        "dt_carga": "2026-11-16Z",
+        "nm_subprefeitura": "CL - CAMPO LIMPO",
+        "sg_fonte_original": "SIGRC"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "risco_ocorrencia_alagamento.1713",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.6597359,
+          -23.45475142
+        ]
+      },
+      "geometry_name": "ge_ponto",
+      "properties": {
+        "cd_identificador": "1713",
+        "dt_ocorrencia": "2026-06-23Z",
+        "dc_tipo_ocorrencia": "ALAGAMENTO",
+        "nm_distrito": null,
+        "dt_carga": "2026-11-16Z",
+        "nm_subprefeitura": "CV - CASA VERDE/CACHOEIRINHA",
+        "sg_fonte_original": "SIGRC"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "risco_ocorrencia_alagamento.1742",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -46.7555476,
+          -23.53368722
+        ]
+      },
+      "geometry_name": "ge_ponto",
+      "properties": {
+        "cd_identificador": "1742",
+        "dt_ocorrencia": "2026-06-24Z",
+        "dc_tipo_ocorrencia": "ALAGAMENTO",
+        "nm_distrito": null,
+        "dt_carga": "2026-11-16Z",
+        "nm_subprefeitura": "LA - LAPA",
+        "sg_fonte_original": "SIGRC"
+      }
+    }
+  ],
+  "totalFeatures": 315,
+  "numberMatched": 315,
+  "numberReturned": 315,
+  "timeStamp": "2026-11-17T01:09:50.721Z",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:EPSG::4326"
+    }
+  },
+  "_amostra": "10 de 315 ocorrências do arquivo alagamentos_20261116.geojson (GeoSampa, camada geoportal:risco_ocorrencia_alagamento)"
+}
