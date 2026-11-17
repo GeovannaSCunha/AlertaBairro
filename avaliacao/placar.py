@@ -152,7 +152,29 @@ def rodar(config: str, modelo: str, url: str, timeout: int) -> None:
     print(f"\nSalvo em {saida_arquivo}")
 
 
+def aplicar_revisao(linhas: list[dict]) -> list[dict]:
+    """Aplica a revisão humana (avaliacao/revisao_manual.json) e separa respostas barradas pela validação.
+
+    Uma resposta com JSON ou citação inválida é barrada pelo validador e nunca chega ao usuário (no site,
+    a pergunta cai para o modo regras). Por isso ela conta como "bloqueada", e não como alucinação.
+    """
+    caminho = RESULTADOS.parent / "revisao_manual.json"
+    revisao = json.loads(caminho.read_text(encoding="utf-8")) if caminho.exists() else {}
+    saida = []
+    for l in linhas:
+        l = dict(l)
+        l["bloqueado"] = l["config"] != "sem_contexto" and l["etapa"] == "modelo" and l["json_valido"] is False
+        if l["bloqueado"]:
+            l["alucinou"] = False
+        ajuste = revisao.get(l["config"], {}).get(l["id"])
+        if ajuste:
+            l["correto"], l["alucinou"], l["revisado"] = ajuste["correto"], ajuste["alucinou"], ajuste["motivo"]
+        saida.append(l)
+    return saida
+
+
 def resumir(linhas: list[dict]) -> dict:
+    linhas = aplicar_revisao(linhas)
     n = len(linhas)
     resp = [l for l in linhas if l["categoria"] not in ("nao_consta", "previsao")]
     recusar = [l for l in linhas if l["categoria"] in ("nao_consta", "previsao")]
@@ -167,7 +189,10 @@ def resumir(linhas: list[dict]) -> dict:
         "alucinacao": sum(l["alucinou"] for l in linhas) / n,
         "recusa_indevida": sum(l["recusa_indevida"] for l in linhas) / n,
         "json_valido": (sum(bool(l["json_valido"]) for l in modelo) / len(modelo)) if modelo else None,
-        "citacao_correta": (sum(l["citou_ouro"] for l in citaveis) / len(citaveis)) if citaveis else None,
+        "citacao_correta": (sum(l["citou_ouro"] for l in citaveis) / len(citaveis))
+        if citaveis and linhas[0]["config"] != "sem_contexto" else None,
+        "bloqueado_validacao": sum(l["bloqueado"] for l in linhas) / n,
+        "revisados_manualmente": sum(bool(l.get("revisado")) for l in linhas),
         "chamadas_ao_modelo": len(modelo),
         "latencia_media_s": sum(l["latencia_s"] for l in linhas) / n,
     }
@@ -177,11 +202,13 @@ ROTULOS = [
     ("acerto_geral", "Acerto geral (50 casos)"),
     ("acerto_respondiveis", "Acerto nas perguntas com resposta"),
     ("recusa_correta", "Recusa correta ('não consta' e previsão)"),
-    ("alucinacao", "Alucinação (afirmou o que a base não sustenta)"),
+    ("alucinacao", "Alucinação que chega ao usuário"),
+    ("bloqueado_validacao", "Respostas barradas pela validação do JSON"),
     ("recusa_indevida", "Recusa indevida"),
     ("json_valido", "JSON válido (chamadas ao modelo)"),
     ("citacao_correta", "Citou o trecho correto"),
     ("chamadas_ao_modelo", "Chamadas ao modelo"),
+    ("revisados_manualmente", "Casos com correção manual"),
     ("latencia_media_s", "Latência média (s)"),
 ]
 
@@ -189,7 +216,7 @@ ROTULOS = [
 def _fmt(chave: str, valor) -> str:
     if valor is None:
         return "—"
-    if chave == "chamadas_ao_modelo":
+    if chave in ("chamadas_ao_modelo", "revisados_manualmente"):
         return str(valor)
     if chave == "latencia_media_s":
         return f"{valor:.1f}".replace(".", ",")
