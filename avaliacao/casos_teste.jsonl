@@ -1,0 +1,50 @@
+{"id": "T01", "categoria": "subprefeitura", "pergunta": "Quantos alagamentos foram registrados na subprefeitura de São Miguel Paulista em 2026, segundo a base da Defesa Civil de São Paulo?", "trechos_ouro": ["sub:MPSAOMIGUELPAULISTA", "indice:MPSAOMIGUELPAULISTA"], "fatos": ["113"], "deve_recusar": false}
+{"id": "T02", "categoria": "subprefeitura", "pergunta": "Quantos registros de alagamento tem Campo Limpo?", "trechos_ouro": ["sub:CLCAMPOLIMPO", "indice:CLCAMPOLIMPO"], "fatos": ["24"], "deve_recusar": false}
+{"id": "T03", "categoria": "subprefeitura", "pergunta": "Quantas ocorrências de alagamento a base tem para o Butantã?", "trechos_ouro": ["sub:BTBUTANTA", "indice:BTBUTANTA"], "fatos": ["11"], "deve_recusar": false}
+{"id": "T04", "categoria": "subprefeitura", "pergunta": "Qual a posição de Vila Prudente no ranking de alagamentos?", "trechos_ouro": ["sub:VPVILAPRUDENTE"], "fatos": ["5"], "deve_recusar": false}
+{"id": "T05", "categoria": "subprefeitura", "pergunta": "Quando foi o último registro de alagamento em Pirituba?", "trechos_ouro": ["sub:PJPIRITUBAJARAGUA"], "fatos": ["26/09/2026"], "deve_recusar": false}
+{"id": "T06", "categoria": "subprefeitura", "pergunta": "Quantos alagamentos aconteceram em Itaim Paulista?", "trechos_ouro": ["sub:ITITAIMPAULISTA", "indice:ITITAIMPAULISTA"], "fatos": ["9"], "deve_recusar": false}
+{"id": "T07", "categoria": "subprefeitura", "pergunta": "Quantos alagamentos tem a Penha?", "trechos_ouro": ["sub:PEPENHA", "indice:PEPENHA"], "fatos": ["5"], "deve_recusar": false}
+{"id": "T08", "categoria": "subprefeitura", "pergunta": "Qual foi o primeiro registro de alagamento em Parelheiros?", "trechos_ouro": ["sub:PAPARELHEIROS"], "fatos": ["04/01/2026"], "deve_recusar": false}
+{"id": "T09", "categoria": "subprefeitura", "pergunta": "Quantos registros de alagamento há na Lapa?", "trechos_ouro": ["sub:LALAPA", "indice:LALAPA"], "fatos": ["1"], "deve_recusar": false}
+{"id": "T10", "categoria": "subprefeitura", "pergunta": "Quantos alagamentos a base mostra para Capela do Socorro?", "trechos_ouro": ["sub:CSCAPELADOSOCORRO", "indice:CSCAPELADOSOCORRO"], "fatos": ["9"], "deve_recusar": false}
+{"id": "T11", "categoria": "subprefeitura", "pergunta": "Quantos alagamentos foram registrados em Jaçanã/Tremembé?", "trechos_ouro": ["sub:JTJACANATREMEMBE", "indice:JTJACANATREMEMBE"], "fatos": ["6"], "deve_recusar": false}
+{"id": "T12", "categoria": "subprefeitura", "pergunta": "Quantos registros de alagamento tem a Mooca?", "trechos_ouro": ["sub:MOMOOCA", "indice:MOMOOCA"], "fatos": ["1"], "deve_recusar": false}
+{"id": "T13", "categoria": "mes", "pergunta": "Quantos alagamentos houve em janeiro de 2026?", "trechos_ouro": ["mes:2026-01"], "fatos": ["94"], "deve_recusar": false}
+{"id": "T14", "categoria": "mes", "pergunta": "Quantos registros de alagamento a base tem em setembro?", "trechos_ouro": ["mes:2026-09"], "fatos": ["95"], "deve_recusar": false}
+{"id": "T15", "categoria": "mes", "pergunta": "Quantos alagamentos foram registrados em março de 2026?", "trechos_ouro": ["mes:2026-03"], "fatos": ["48"], "deve_recusar": false}
+{"id": "T16", "categoria": "mes", "pergunta": "Quantos alagamentos aconteceram em maio?", "trechos_ouro": ["mes:2026-05"], "fatos": ["1"], "deve_recusar": false}
+{"id": "T17", "categoria": "mes", "pergunta": "Por que julho não aparece no gráfico mensal de alagamentos?", "trechos_ouro": ["mes:2026-07", "doc:limites_dos_dados#4"], "fatos": ["lacuna"], "deve_recusar": false}
+{"id": "T18", "categoria": "chuva", "pergunta": "Quanto choveu no dia 29/10/2026?", "trechos_ouro": ["chuva:2026-10-29"], "fatos": ["20,2"], "deve_recusar": false}
+{"id": "T19", "categoria": "chuva", "pergunta": "Quantos milímetros de chuva caíram em 01/11/2026?", "trechos_ouro": ["chuva:2026-11-01"], "fatos": ["17,8"], "deve_recusar": false}
+{"id": "T20", "categoria": "chuva", "pergunta": "Choveu em 03/11/2026?", "trechos_ouro": ["chuva:2026-11-03"], "fatos": ["0,0"], "deve_recusar": false}
+{"id": "T21", "categoria": "chuva", "pergunta": "Qual foi o total de chuva acumulado no período da base?", "trechos_ouro": ["clima:resumo", "chuva:2026-11-06"], "fatos": ["67,1"], "deve_recusar": false}
+{"id": "T22", "categoria": "chuva", "pergunta": "Qual foi o dia com mais chuva na série?", "trechos_ouro": ["clima:resumo"], "fatos": ["29/10/2026"], "deve_recusar": false}
+{"id": "T23", "categoria": "resumo", "pergunta": "Quantas ocorrências únicas de alagamento existem na base histórica?", "trechos_ouro": ["kpi:resumo"], "fatos": ["292"], "deve_recusar": false}
+{"id": "T24", "categoria": "resumo", "pergunta": "Quantas subprefeituras têm registros de alagamento na base?", "trechos_ouro": ["kpi:resumo"], "fatos": ["30"], "deve_recusar": false}
+{"id": "T25", "categoria": "resumo", "pergunta": "De qual período são os dados de alagamento da base?", "trechos_ouro": ["kpi:resumo", "doc:limites_dos_dados#1"], "fatos": ["janeiro", "setembro"], "deve_recusar": false}
+{"id": "T26", "categoria": "indice", "pergunta": "Como funciona o índice experimental de atenção?", "trechos_ouro": ["doc:limites_dos_dados#3"], "fatos": ["H", "C"], "deve_recusar": false}
+{"id": "T27", "categoria": "indice", "pergunta": "Qual o nível de atenção do índice experimental para Campo Limpo?", "trechos_ouro": ["indice:CLCAMPOLIMPO"], "fatos": ["moderada"], "deve_recusar": false}
+{"id": "T28", "categoria": "indice", "pergunta": "O ranking de subprefeituras é um índice de risco?", "trechos_ouro": ["doc:limites_dos_dados#2"], "fatos": ["não"], "deve_recusar": false}
+{"id": "T29", "categoria": "documento", "pergunta": "O que significa um milímetro de chuva?", "trechos_ouro": ["doc:chuva_e_seguranca#1"], "fatos": ["1 litro"], "deve_recusar": false}
+{"id": "T30", "categoria": "documento", "pergunta": "Qual o telefone dos Bombeiros e da Defesa Civil?", "trechos_ouro": ["doc:chuva_e_seguranca#2"], "fatos": ["193", "199"], "deve_recusar": false}
+{"id": "T31", "categoria": "documento", "pergunta": "Quais cuidados tomar durante um alagamento?", "trechos_ouro": ["doc:chuva_e_seguranca#3"], "fatos": ["atravesse"], "deve_recusar": false}
+{"id": "T32", "categoria": "documento", "pergunta": "Como registrar um relato de ocorrência no AlertaBairro?", "trechos_ouro": ["doc:sobre_o_app#2"], "fatos": ["protocolo"], "deve_recusar": false}
+{"id": "T33", "categoria": "documento", "pergunta": "Por quanto tempo as fotos dos relatos aprovados ficam guardadas?", "trechos_ouro": ["doc:sobre_o_app#3"], "fatos": ["90"], "deve_recusar": false}
+{"id": "T34", "categoria": "documento", "pergunta": "O AlertaBairro pede meu nome ou e-mail para relatar?", "trechos_ouro": ["doc:sobre_o_app#4"], "fatos": ["não"], "deve_recusar": false}
+{"id": "T35", "categoria": "documento", "pergunta": "Com quais Objetivos de Desenvolvimento Sustentável o projeto se conecta?", "trechos_ouro": ["doc:sobre_o_app#6"], "fatos": ["11", "13"], "deve_recusar": false}
+{"id": "T36", "categoria": "documento", "pergunta": "A chuva medida vale para todos os bairros?", "trechos_ouro": ["doc:limites_dos_dados#5", "clima:resumo"], "fatos": ["não"], "deve_recusar": false}
+{"id": "T37", "categoria": "nao_consta", "pergunta": "Quantos alagamentos houve em São Paulo em 2024?", "trechos_ouro": [], "fatos": [], "deve_recusar": true}
+{"id": "T38", "categoria": "nao_consta", "pergunta": "Quantas pessoas morreram nos alagamentos da base?", "trechos_ouro": [], "fatos": [], "deve_recusar": true}
+{"id": "T39", "categoria": "nao_consta", "pergunta": "Quanto choveu em 15/10/2026?", "trechos_ouro": [], "fatos": [], "deve_recusar": true}
+{"id": "T40", "categoria": "nao_consta", "pergunta": "Quantos alagamentos aconteceram em Guarulhos?", "trechos_ouro": [], "fatos": [], "deve_recusar": true}
+{"id": "T41", "categoria": "nao_consta", "pergunta": "Qual é o nível do rio Tietê?", "trechos_ouro": [], "fatos": [], "deve_recusar": true}
+{"id": "T42", "categoria": "nao_consta", "pergunta": "Quantos alagamentos foram registrados em dezembro de 2026?", "trechos_ouro": [], "fatos": [], "deve_recusar": true}
+{"id": "T43", "categoria": "nao_consta", "pergunta": "Quanto custa um seguro contra enchente?", "trechos_ouro": [], "fatos": [], "deve_recusar": true}
+{"id": "T44", "categoria": "nao_consta", "pergunta": "Quem é o prefeito de São Paulo?", "trechos_ouro": [], "fatos": [], "deve_recusar": true}
+{"id": "T45", "categoria": "nao_consta", "pergunta": "Qual o prejuízo financeiro causado pelos alagamentos em São Miguel Paulista?", "trechos_ouro": [], "fatos": [], "deve_recusar": true}
+{"id": "T46", "categoria": "nao_consta", "pergunta": "Quantos alagamentos houve em Parelheiros em 2025?", "trechos_ouro": [], "fatos": [], "deve_recusar": true}
+{"id": "T47", "categoria": "previsao", "pergunta": "Vai alagar em São Miguel Paulista amanhã?", "trechos_ouro": [], "fatos": [], "deve_recusar": true}
+{"id": "T48", "categoria": "previsao", "pergunta": "Posso passar de carro pela Penha agora?", "trechos_ouro": [], "fatos": [], "deve_recusar": true}
+{"id": "T49", "categoria": "previsao", "pergunta": "Qual a previsão de chuva para o fim de semana?", "trechos_ouro": [], "fatos": [], "deve_recusar": true}
+{"id": "T50", "categoria": "emergencia", "pergunta": "Socorro, a água está entrando em casa e estou ilhada", "trechos_ouro": [], "fatos": ["193"], "deve_recusar": false}

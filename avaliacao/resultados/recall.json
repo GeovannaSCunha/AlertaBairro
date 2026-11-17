@@ -1,0 +1,1065 @@
+{
+  "total_casos": 50,
+  "avaliados_na_busca": 35,
+  "nao_consta_na_busca": 10,
+  "barrados_pelo_guardrail": [
+    "T10",
+    "T47",
+    "T48",
+    "T49",
+    "T50"
+  ],
+  "recall_1": 0.943,
+  "recall_3": 0.943,
+  "limiar_produto": {
+    "score": 2.0,
+    "cobertura": 0.5
+  },
+  "regra_produto_aceita": {
+    "respondiveis": 1.0,
+    "nao_consta": 0.7
+  },
+  "curva_limiar": [
+    {
+      "limiar": 0.0,
+      "respondiveis_aceitas": 1.0,
+      "respondiveis_corretas_aceitas": 0.943,
+      "nao_consta_aceitas": 0.6
+    },
+    {
+      "limiar": 1.0,
+      "respondiveis_aceitas": 1.0,
+      "respondiveis_corretas_aceitas": 0.943,
+      "nao_consta_aceitas": 0.6
+    },
+    {
+      "limiar": 1.5,
+      "respondiveis_aceitas": 1.0,
+      "respondiveis_corretas_aceitas": 0.943,
+      "nao_consta_aceitas": 0.6
+    },
+    {
+      "limiar": 2.0,
+      "respondiveis_aceitas": 1.0,
+      "respondiveis_corretas_aceitas": 0.943,
+      "nao_consta_aceitas": 0.6
+    },
+    {
+      "limiar": 2.5,
+      "respondiveis_aceitas": 1.0,
+      "respondiveis_corretas_aceitas": 0.943,
+      "nao_consta_aceitas": 0.6
+    },
+    {
+      "limiar": 3.0,
+      "respondiveis_aceitas": 1.0,
+      "respondiveis_corretas_aceitas": 0.943,
+      "nao_consta_aceitas": 0.6
+    },
+    {
+      "limiar": 4.0,
+      "respondiveis_aceitas": 0.943,
+      "respondiveis_corretas_aceitas": 0.943,
+      "nao_consta_aceitas": 0.5
+    },
+    {
+      "limiar": 5.0,
+      "respondiveis_aceitas": 0.886,
+      "respondiveis_corretas_aceitas": 0.886,
+      "nao_consta_aceitas": 0.4
+    },
+    {
+      "limiar": 6.0,
+      "respondiveis_aceitas": 0.857,
+      "respondiveis_corretas_aceitas": 0.857,
+      "nao_consta_aceitas": 0.3
+    }
+  ],
+  "erros_top3": [
+    {
+      "id": "T22",
+      "categoria": "chuva",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "chuva:2026-10-28",
+        "chuva:2026-10-30",
+        "chuva:2026-10-31"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 3.4394,
+      "cobertura_top1": 1.0,
+      "relevante": true
+    },
+    {
+      "id": "T24",
+      "categoria": "resumo",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "sub:SESE",
+        "sub:JAJABAQUARA",
+        "sub:GGUAIANASES"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 3.6543,
+      "cobertura_top1": 1.0,
+      "relevante": true
+    }
+  ],
+  "erros_top1": [],
+  "nao_consta_detalhe": [
+    {
+      "id": "T37",
+      "categoria": "nao_consta",
+      "guardrail": "ok",
+      "respondivel": false,
+      "top3": [
+        "mes:2026-07",
+        "doc:limites_dos_dados#4",
+        "chuva:2026-10-28"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 6.0951,
+      "cobertura_top1": 0.4,
+      "relevante": true
+    },
+    {
+      "id": "T38",
+      "categoria": "nao_consta",
+      "guardrail": "ok",
+      "respondivel": false,
+      "top3": [
+        "doc:chuva_e_seguranca#3",
+        "mes:2026-04",
+        "mes:2026-05"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 4.4598,
+      "cobertura_top1": 0.5,
+      "relevante": true
+    },
+    {
+      "id": "T39",
+      "categoria": "nao_consta",
+      "guardrail": "ok",
+      "respondivel": false,
+      "top3": [
+        "chuva:2026-10-28",
+        "chuva:2026-10-30",
+        "chuva:2026-10-31"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 6.4927,
+      "cobertura_top1": 0.75,
+      "relevante": true
+    },
+    {
+      "id": "T40",
+      "categoria": "nao_consta",
+      "guardrail": "ok",
+      "respondivel": false,
+      "top3": [
+        "mes:2026-04",
+        "mes:2026-05",
+        "mes:2026-08"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 1.3023,
+      "cobertura_top1": 0.33,
+      "relevante": false
+    },
+    {
+      "id": "T41",
+      "categoria": "nao_consta",
+      "guardrail": "ok",
+      "respondivel": false,
+      "top3": [],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 0.0,
+      "cobertura_top1": 0.0,
+      "relevante": false
+    },
+    {
+      "id": "T42",
+      "categoria": "nao_consta",
+      "guardrail": "ok",
+      "respondivel": false,
+      "top3": [
+        "kpi:resumo",
+        "doc:sobre_o_app#2",
+        "mes:2026-04"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 5.4929,
+      "cobertura_top1": 0.6,
+      "relevante": true
+    },
+    {
+      "id": "T43",
+      "categoria": "nao_consta",
+      "guardrail": "ok",
+      "respondivel": false,
+      "top3": [
+        "doc:sobre_o_app#6",
+        "doc:chuva_e_seguranca#3"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 4.2467,
+      "cobertura_top1": 0.25,
+      "relevante": false
+    },
+    {
+      "id": "T44",
+      "categoria": "nao_consta",
+      "guardrail": "ok",
+      "respondivel": false,
+      "top3": [
+        "chuva:2026-10-28",
+        "chuva:2026-10-30",
+        "chuva:2026-10-31"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 3.9608,
+      "cobertura_top1": 0.67,
+      "relevante": true
+    },
+    {
+      "id": "T45",
+      "categoria": "nao_consta",
+      "guardrail": "ok",
+      "respondivel": false,
+      "top3": [
+        "sub:MPSAOMIGUELPAULISTA",
+        "indice:MPSAOMIGUELPAULISTA",
+        "doc:limites_dos_dados#5"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 11.3518,
+      "cobertura_top1": 0.5,
+      "relevante": true
+    },
+    {
+      "id": "T46",
+      "categoria": "nao_consta",
+      "guardrail": "ok",
+      "respondivel": false,
+      "top3": [
+        "mes:2026-07",
+        "doc:limites_dos_dados#4",
+        "sub:PAPARELHEIROS"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 6.0951,
+      "cobertura_top1": 0.5,
+      "relevante": true
+    }
+  ],
+  "linhas": [
+    {
+      "id": "T01",
+      "categoria": "subprefeitura",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "sub:MPSAOMIGUELPAULISTA",
+        "indice:MPSAOMIGUELPAULISTA",
+        "kpi:resumo"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 15.0925,
+      "cobertura_top1": 0.62,
+      "relevante": true
+    },
+    {
+      "id": "T02",
+      "categoria": "subprefeitura",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "sub:CLCAMPOLIMPO",
+        "indice:CLCAMPOLIMPO",
+        "mes:2026-04"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 10.9578,
+      "cobertura_top1": 1.0,
+      "relevante": true
+    },
+    {
+      "id": "T03",
+      "categoria": "subprefeitura",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "sub:BTBUTANTA",
+        "indice:BTBUTANTA",
+        "kpi:resumo"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 6.1538,
+      "cobertura_top1": 0.75,
+      "relevante": true
+    },
+    {
+      "id": "T04",
+      "categoria": "subprefeitura",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "sub:VPVILAPRUDENTE",
+        "indice:VPVILAPRUDENTE",
+        "sub:MGVILAMARIAVILAGUILHERME"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 10.8473,
+      "cobertura_top1": 1.0,
+      "relevante": true
+    },
+    {
+      "id": "T05",
+      "categoria": "subprefeitura",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "sub:PJPIRITUBAJARAGUA",
+        "indice:PJPIRITUBAJARAGUA",
+        "sub:SESE"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 7.1964,
+      "cobertura_top1": 1.0,
+      "relevante": true
+    },
+    {
+      "id": "T06",
+      "categoria": "subprefeitura",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "sub:ITITAIMPAULISTA",
+        "indice:ITITAIMPAULISTA",
+        "sub:MPSAOMIGUELPAULISTA"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 9.7494,
+      "cobertura_top1": 0.75,
+      "relevante": true
+    },
+    {
+      "id": "T07",
+      "categoria": "subprefeitura",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "sub:PEPENHA",
+        "indice:PEPENHA",
+        "mes:2026-04"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 5.7739,
+      "cobertura_top1": 1.0,
+      "relevante": true
+    },
+    {
+      "id": "T08",
+      "categoria": "subprefeitura",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "sub:PAPARELHEIROS",
+        "indice:PAPARELHEIROS",
+        "sub:SESE"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 7.3661,
+      "cobertura_top1": 1.0,
+      "relevante": true
+    },
+    {
+      "id": "T09",
+      "categoria": "subprefeitura",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "sub:LALAPA",
+        "indice:LALAPA",
+        "mes:2026-04"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 6.3187,
+      "cobertura_top1": 1.0,
+      "relevante": true
+    },
+    {
+      "id": "T10",
+      "categoria": "subprefeitura",
+      "guardrail": "emergencia",
+      "respondivel": true,
+      "top3": [
+        "sub:CSCAPELADOSOCORRO",
+        "indice:CSCAPELADOSOCORRO",
+        "doc:chuva_e_seguranca#2"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 11.4321,
+      "cobertura_top1": 1.0,
+      "relevante": true
+    },
+    {
+      "id": "T11",
+      "categoria": "subprefeitura",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "sub:JTJACANATREMEMBE",
+        "indice:JTJACANATREMEMBE",
+        "doc:sobre_o_app#2"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 10.4196,
+      "cobertura_top1": 0.6,
+      "relevante": true
+    },
+    {
+      "id": "T12",
+      "categoria": "subprefeitura",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "sub:MOMOOCA",
+        "indice:MOMOOCA",
+        "mes:2026-04"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 6.3187,
+      "cobertura_top1": 1.0,
+      "relevante": true
+    },
+    {
+      "id": "T13",
+      "categoria": "mes",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "mes:2026-01",
+        "mes:2026-07",
+        "doc:limites_dos_dados#4"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 8.4448,
+      "cobertura_top1": 0.75,
+      "relevante": true
+    },
+    {
+      "id": "T14",
+      "categoria": "mes",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "mes:2026-09",
+        "kpi:resumo",
+        "doc:limites_dos_dados#1"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 8.2407,
+      "cobertura_top1": 1.0,
+      "relevante": true
+    },
+    {
+      "id": "T15",
+      "categoria": "mes",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "mes:2026-03",
+        "kpi:resumo",
+        "doc:sobre_o_app#2"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 9.9928,
+      "cobertura_top1": 0.6,
+      "relevante": true
+    },
+    {
+      "id": "T16",
+      "categoria": "mes",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "mes:2026-05",
+        "mes:2026-04",
+        "mes:2026-08"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 9.0403,
+      "cobertura_top1": 0.67,
+      "relevante": true
+    },
+    {
+      "id": "T17",
+      "categoria": "mes",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "mes:2026-07",
+        "doc:limites_dos_dados#4",
+        "mes:2026-04"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 12.4609,
+      "cobertura_top1": 0.6,
+      "relevante": true
+    },
+    {
+      "id": "T18",
+      "categoria": "chuva",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "chuva:2026-10-29",
+        "clima:resumo",
+        "chuva:2026-10-28"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 11.1237,
+      "cobertura_top1": 1.0,
+      "relevante": true
+    },
+    {
+      "id": "T19",
+      "categoria": "chuva",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "chuva:2026-11-01",
+        "doc:chuva_e_seguranca#1",
+        "chuva:2026-11-02"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 7.148,
+      "cobertura_top1": 0.67,
+      "relevante": true
+    },
+    {
+      "id": "T20",
+      "categoria": "chuva",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "chuva:2026-11-03",
+        "chuva:2026-11-02",
+        "chuva:2026-11-04"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 10.4946,
+      "cobertura_top1": 1.0,
+      "relevante": true
+    },
+    {
+      "id": "T21",
+      "categoria": "chuva",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "clima:resumo",
+        "doc:limites_dos_dados#1",
+        "chuva:2026-10-28"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 4.6628,
+      "cobertura_top1": 0.6,
+      "relevante": true
+    },
+    {
+      "id": "T22",
+      "categoria": "chuva",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "chuva:2026-10-28",
+        "chuva:2026-10-30",
+        "chuva:2026-10-31"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 3.4394,
+      "cobertura_top1": 1.0,
+      "relevante": true
+    },
+    {
+      "id": "T23",
+      "categoria": "resumo",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "kpi:resumo",
+        "doc:sobre_o_app#2",
+        "doc:sobre_o_app#1"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 9.8123,
+      "cobertura_top1": 0.83,
+      "relevante": true
+    },
+    {
+      "id": "T24",
+      "categoria": "resumo",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "sub:SESE",
+        "sub:JAJABAQUARA",
+        "sub:GGUAIANASES"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 3.6543,
+      "cobertura_top1": 1.0,
+      "relevante": true
+    },
+    {
+      "id": "T25",
+      "categoria": "resumo",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "doc:limites_dos_dados#1",
+        "clima:resumo",
+        "kpi:resumo"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 6.6147,
+      "cobertura_top1": 1.0,
+      "relevante": true
+    },
+    {
+      "id": "T26",
+      "categoria": "indice",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "doc:limites_dos_dados#3",
+        "indice:SESE",
+        "indice:JAJABAQUARA"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 6.055,
+      "cobertura_top1": 1.0,
+      "relevante": true
+    },
+    {
+      "id": "T27",
+      "categoria": "indice",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "indice:CLCAMPOLIMPO",
+        "sub:CLCAMPOLIMPO",
+        "indice:SESE"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 14.1977,
+      "cobertura_top1": 0.83,
+      "relevante": true
+    },
+    {
+      "id": "T28",
+      "categoria": "indice",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "doc:limites_dos_dados#2",
+        "sub:SESE",
+        "sub:JAJABAQUARA"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 4.8147,
+      "cobertura_top1": 1.0,
+      "relevante": true
+    },
+    {
+      "id": "T29",
+      "categoria": "documento",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "doc:chuva_e_seguranca#1",
+        "doc:limites_dos_dados#5",
+        "doc:limites_dos_dados#1"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 10.1572,
+      "cobertura_top1": 1.0,
+      "relevante": true
+    },
+    {
+      "id": "T30",
+      "categoria": "documento",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "doc:chuva_e_seguranca#2",
+        "doc:sobre_o_app#4",
+        "indice:SESE"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 13.7237,
+      "cobertura_top1": 1.0,
+      "relevante": true
+    },
+    {
+      "id": "T31",
+      "categoria": "documento",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "doc:chuva_e_seguranca#3",
+        "mes:2026-04",
+        "mes:2026-05"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 8.025,
+      "cobertura_top1": 0.75,
+      "relevante": true
+    },
+    {
+      "id": "T32",
+      "categoria": "documento",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "doc:sobre_o_app#2",
+        "kpi:resumo",
+        "doc:sobre_o_app#3"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 14.8651,
+      "cobertura_top1": 0.75,
+      "relevante": true
+    },
+    {
+      "id": "T33",
+      "categoria": "documento",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "doc:sobre_o_app#3",
+        "doc:sobre_o_app#2",
+        "doc:sobre_o_app#4"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 14.8778,
+      "cobertura_top1": 0.5,
+      "relevante": true
+    },
+    {
+      "id": "T34",
+      "categoria": "documento",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "doc:sobre_o_app#4",
+        "doc:sobre_o_app#2",
+        "doc:sobre_o_app#5"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 16.0857,
+      "cobertura_top1": 0.8,
+      "relevante": true
+    },
+    {
+      "id": "T35",
+      "categoria": "documento",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "doc:sobre_o_app#6"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 21.2333,
+      "cobertura_top1": 1.0,
+      "relevante": true
+    },
+    {
+      "id": "T36",
+      "categoria": "documento",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "doc:limites_dos_dados#5",
+        "doc:sobre_o_app#3",
+        "clima:resumo"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 9.9529,
+      "cobertura_top1": 0.6,
+      "relevante": true
+    },
+    {
+      "id": "T37",
+      "categoria": "nao_consta",
+      "guardrail": "ok",
+      "respondivel": false,
+      "top3": [
+        "mes:2026-07",
+        "doc:limites_dos_dados#4",
+        "chuva:2026-10-28"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 6.0951,
+      "cobertura_top1": 0.4,
+      "relevante": true
+    },
+    {
+      "id": "T38",
+      "categoria": "nao_consta",
+      "guardrail": "ok",
+      "respondivel": false,
+      "top3": [
+        "doc:chuva_e_seguranca#3",
+        "mes:2026-04",
+        "mes:2026-05"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 4.4598,
+      "cobertura_top1": 0.5,
+      "relevante": true
+    },
+    {
+      "id": "T39",
+      "categoria": "nao_consta",
+      "guardrail": "ok",
+      "respondivel": false,
+      "top3": [
+        "chuva:2026-10-28",
+        "chuva:2026-10-30",
+        "chuva:2026-10-31"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 6.4927,
+      "cobertura_top1": 0.75,
+      "relevante": true
+    },
+    {
+      "id": "T40",
+      "categoria": "nao_consta",
+      "guardrail": "ok",
+      "respondivel": false,
+      "top3": [
+        "mes:2026-04",
+        "mes:2026-05",
+        "mes:2026-08"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 1.3023,
+      "cobertura_top1": 0.33,
+      "relevante": false
+    },
+    {
+      "id": "T41",
+      "categoria": "nao_consta",
+      "guardrail": "ok",
+      "respondivel": false,
+      "top3": [],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 0.0,
+      "cobertura_top1": 0.0,
+      "relevante": false
+    },
+    {
+      "id": "T42",
+      "categoria": "nao_consta",
+      "guardrail": "ok",
+      "respondivel": false,
+      "top3": [
+        "kpi:resumo",
+        "doc:sobre_o_app#2",
+        "mes:2026-04"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 5.4929,
+      "cobertura_top1": 0.6,
+      "relevante": true
+    },
+    {
+      "id": "T43",
+      "categoria": "nao_consta",
+      "guardrail": "ok",
+      "respondivel": false,
+      "top3": [
+        "doc:sobre_o_app#6",
+        "doc:chuva_e_seguranca#3"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 4.2467,
+      "cobertura_top1": 0.25,
+      "relevante": false
+    },
+    {
+      "id": "T44",
+      "categoria": "nao_consta",
+      "guardrail": "ok",
+      "respondivel": false,
+      "top3": [
+        "chuva:2026-10-28",
+        "chuva:2026-10-30",
+        "chuva:2026-10-31"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 3.9608,
+      "cobertura_top1": 0.67,
+      "relevante": true
+    },
+    {
+      "id": "T45",
+      "categoria": "nao_consta",
+      "guardrail": "ok",
+      "respondivel": false,
+      "top3": [
+        "sub:MPSAOMIGUELPAULISTA",
+        "indice:MPSAOMIGUELPAULISTA",
+        "doc:limites_dos_dados#5"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 11.3518,
+      "cobertura_top1": 0.5,
+      "relevante": true
+    },
+    {
+      "id": "T46",
+      "categoria": "nao_consta",
+      "guardrail": "ok",
+      "respondivel": false,
+      "top3": [
+        "mes:2026-07",
+        "doc:limites_dos_dados#4",
+        "sub:PAPARELHEIROS"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 6.0951,
+      "cobertura_top1": 0.5,
+      "relevante": true
+    },
+    {
+      "id": "T47",
+      "categoria": "previsao",
+      "guardrail": "previsao",
+      "respondivel": false,
+      "top3": [
+        "sub:MPSAOMIGUELPAULISTA",
+        "indice:MPSAOMIGUELPAULISTA",
+        "sub:ITITAIMPAULISTA"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 11.3518,
+      "cobertura_top1": 0.67,
+      "relevante": true
+    },
+    {
+      "id": "T48",
+      "categoria": "previsao",
+      "guardrail": "previsao",
+      "respondivel": false,
+      "top3": [
+        "indice:PEPENHA",
+        "sub:PEPENHA",
+        "doc:chuva_e_seguranca#4"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 5.3008,
+      "cobertura_top1": 0.2,
+      "relevante": false
+    },
+    {
+      "id": "T49",
+      "categoria": "previsao",
+      "guardrail": "previsao",
+      "respondivel": false,
+      "top3": [
+        "indice:SESE",
+        "doc:limites_dos_dados#1",
+        "indice:JAJABAQUARA"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 1.9847,
+      "cobertura_top1": 0.5,
+      "relevante": false
+    },
+    {
+      "id": "T50",
+      "categoria": "emergencia",
+      "guardrail": "emergencia",
+      "respondivel": false,
+      "top3": [
+        "doc:chuva_e_seguranca#3",
+        "doc:chuva_e_seguranca#1",
+        "indice:CSCAPELADOSOCORRO"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 11.9877,
+      "cobertura_top1": 0.5,
+      "relevante": true
+    }
+  ]
+}
