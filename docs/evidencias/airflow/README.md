@@ -26,3 +26,20 @@ Esta pasta reúne capturas reais fornecidas durante o desenvolvimento do AlertaB
 
 *Arquivo:* `04_chegada_arquivos_dois_lotes.png` | *Critérios:* R02, R04.
 
+### 05. DAG ativado: agendamento 0 0 * * *, execuções concluídas e próxima execução programada
+
+![DAG ativado: agendamento 0 0 * * *, execuções concluídas e próxima execução programada](05_dag_ativado_agendamento.png)
+
+*Arquivo:* `05_dag_ativado_agendamento.png` | *Critérios:* R02.
+
+### 06. Visão Graph da execução de 16/11 com a versão v2 do DAG (Variables e notificação de falha)
+
+![Visão Graph da execução de 16/11 com a versão v2 do DAG (Variables e notificação de falha)](06_graph_versao_v2.png)
+
+*Arquivo:* `06_graph_versao_v2.png` | *Critérios:* R02, R03.
+
+### 07. Visão Grid: execuções concluídas com as três tarefas em verde
+
+![Visão Grid: execuções concluídas com as três tarefas em verde](07_grid_execucoes.png)
+
+*Arquivo:* `07_grid_execucoes.png` | *Critérios:* R02, R03.

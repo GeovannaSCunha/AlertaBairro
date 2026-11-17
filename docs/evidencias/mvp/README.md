@@ -8,3 +8,8 @@ Esta pasta reúne capturas reais fornecidas durante o desenvolvimento do AlertaB
 
 *Arquivo:* `01_mvp_tela_inicial_kpis.png` | *Critérios:* R08.
 
+### 02. Site lendo ouro_fato_alagamentos_publica, ouro_dim_tempo e ouro_clima_diario (selo Databricks)
+
+![Site lendo ouro_fato_alagamentos_publica, ouro_dim_tempo e ouro_clima_diario (selo Databricks)](02_mvp_lendo_ouro_publica.png)
+
+*Arquivo:* `02_mvp_lendo_ouro_publica.png` | *Critérios:* R08.

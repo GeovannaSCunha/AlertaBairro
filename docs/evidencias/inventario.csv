@@ -26,3 +26,13 @@ ordem,secao,arquivo,descricao,requisitos,imagem_original_indice,resolucao
 25,ouro,evidencias/ouro/09_anonimizacao_hash_292.png,"Ouro - tabela pública com 292 hashes únicos, nenhum nulo",R08,28,887x579
 26,ouro,evidencias/ouro/10_esquema_ouro_publica.png,Ouro - esquema da tabela pública sem coordenadas exatas,R08,30,870x517
 28,mvp,evidencias/mvp/01_mvp_tela_inicial_kpis.png,"Aplicação AlertaBairro exibindo 292 registros, 30 subprefeituras e indicadores climáticos",R08,51,1920x1032
+28,airflow,evidencias/airflow/05_dag_ativado_agendamento.png,"DAG ativado: agendamento 0 0 * * *, execuções concluídas e próxima execução programada","R02",,1302x330
+29,airflow,evidencias/airflow/06_graph_versao_v2.png,"Visão Graph da execução de 16/11 com a versão v2 do DAG (Variables e notificação de falha)","R02, R03",,1290x585
+30,airflow,evidencias/airflow/07_grid_execucoes.png,"Visão Grid: execuções concluídas com as três tarefas em verde","R02, R03",,1290x595
+31,bronze,evidencias/bronze/06_auditoria_contagens_por_versao.png,"Contagem da Bronze por versão Delta: 1º lote (1 documento, 292 / 8) e 2º lote (2 documentos, 584 / 16)","R05",,1344x320
+32,bronze,evidencias/bronze/07_auditoria_reexecucao_sem_duplicar.png,"2ª execução do COPY INTO: 0 linhas inseridas, documentos antes = depois","R05",,1344x384
+33,ouro,evidencias/ouro/11_validacao_ouro_publica.png,"Fato pública: 292 hashes únicos de 64 caracteres, nenhum nulo, coordenadas com até 3 casas","R08",,1426x451
+34,ouro,evidencias/ouro/12_contrato_mvp_kpis.png,"Contrato do MVP: KPIs da página inicial lidos da fato pública e da dim_tempo","R08",,1418x548
+35,ouro,evidencias/ouro/13_contrato_mvp_ranking.png,"Contrato do MVP: ranking da tela Regiões (fato pública + dim_subprefeitura)","R08",,1417x710
+36,ouro,evidencias/ouro/14_contrato_mvp_mapa.png,"Contrato do MVP: pontos do mapa com hash e coordenadas aproximadas","R08",,1414x702
+37,mvp,evidencias/mvp/02_mvp_lendo_ouro_publica.png,"Site lendo ouro_fato_alagamentos_publica, ouro_dim_tempo e ouro_clima_diario (selo Databricks)","R08",,1167x534

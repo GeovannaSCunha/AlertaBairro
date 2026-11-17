@@ -32,3 +32,14 @@ Esta pasta reúne capturas reais fornecidas durante o desenvolvimento do AlertaB
 
 *Arquivo:* `05_copy_into_alagamentos_reexecucao.png` | *Critérios:* R05.
 
+### 06. Contagem da Bronze por versão Delta: 1º lote (1 documento, 292 / 8) e 2º lote (2 documentos, 584 / 16)
+
+![Contagem da Bronze por versão Delta: 1º lote (1 documento, 292 / 8) e 2º lote (2 documentos, 584 / 16)](06_auditoria_contagens_por_versao.png)
+
+*Arquivo:* `06_auditoria_contagens_por_versao.png` | *Critérios:* R05.
+
+### 07. 2ª execução do COPY INTO: 0 linhas inseridas, documentos antes = depois
+
+![2ª execução do COPY INTO: 0 linhas inseridas, documentos antes = depois](07_auditoria_reexecucao_sem_duplicar.png)
+
+*Arquivo:* `07_auditoria_reexecucao_sem_duplicar.png` | *Critérios:* R05.

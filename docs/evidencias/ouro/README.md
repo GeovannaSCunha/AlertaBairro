@@ -61,3 +61,27 @@ Esta pasta reúne capturas reais fornecidas durante o desenvolvimento do AlertaB
 ![Ouro - esquema da tabela pública sem coordenadas exatas](10_esquema_ouro_publica.png)
 
 *Arquivo:* `10_esquema_ouro_publica.png` | *Critérios:* R08.
+
+### 11. Fato pública: 292 hashes únicos de 64 caracteres, nenhum nulo, coordenadas com até 3 casas
+
+![Fato pública: 292 hashes únicos de 64 caracteres, nenhum nulo, coordenadas com até 3 casas](11_validacao_ouro_publica.png)
+
+*Arquivo:* `11_validacao_ouro_publica.png` | *Critérios:* R08.
+
+### 12. Contrato do MVP: KPIs da página inicial lidos da fato pública e da dim_tempo
+
+![Contrato do MVP: KPIs da página inicial lidos da fato pública e da dim_tempo](12_contrato_mvp_kpis.png)
+
+*Arquivo:* `12_contrato_mvp_kpis.png` | *Critérios:* R08.
+
+### 13. Contrato do MVP: ranking da tela Regiões (fato pública + dim_subprefeitura)
+
+![Contrato do MVP: ranking da tela Regiões (fato pública + dim_subprefeitura)](13_contrato_mvp_ranking.png)
+
+*Arquivo:* `13_contrato_mvp_ranking.png` | *Critérios:* R08.
+
+### 14. Contrato do MVP: pontos do mapa com hash e coordenadas aproximadas
+
+![Contrato do MVP: pontos do mapa com hash e coordenadas aproximadas](14_contrato_mvp_mapa.png)
+
+*Arquivo:* `14_contrato_mvp_mapa.png` | *Critérios:* R08.

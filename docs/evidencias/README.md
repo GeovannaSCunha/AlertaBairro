@@ -48,3 +48,15 @@ Capturas fornecidas ao longo da construção do projeto, selecionadas e renomead
 
 - **[01_mvp_tela_inicial_kpis.png](mvp/01_mvp_tela_inicial_kpis.png)** - Aplicação AlertaBairro exibindo 292 registros, 30 subprefeituras e indicadores climáticos. Requisitos: R08.
 
+## Evidências adicionadas na etapa final (16/11)
+
+- **[05_dag_ativado_agendamento.png](airflow/05_dag_ativado_agendamento.png)**: DAG ativado: agendamento 0 0 * * *, execuções concluídas e próxima execução programada. Requisitos: R02.
+- **[06_graph_versao_v2.png](airflow/06_graph_versao_v2.png)**: Visão Graph da execução de 16/11 com a versão v2 do DAG (Variables e notificação de falha). Requisitos: R02, R03.
+- **[07_grid_execucoes.png](airflow/07_grid_execucoes.png)**: Visão Grid: execuções concluídas com as três tarefas em verde. Requisitos: R02, R03.
+- **[06_auditoria_contagens_por_versao.png](bronze/06_auditoria_contagens_por_versao.png)**: Contagem da Bronze por versão Delta: 1º lote (1 documento, 292 / 8) e 2º lote (2 documentos, 584 / 16). Requisitos: R05.
+- **[07_auditoria_reexecucao_sem_duplicar.png](bronze/07_auditoria_reexecucao_sem_duplicar.png)**: 2ª execução do COPY INTO: 0 linhas inseridas, documentos antes = depois. Requisitos: R05.
+- **[11_validacao_ouro_publica.png](ouro/11_validacao_ouro_publica.png)**: Fato pública: 292 hashes únicos de 64 caracteres, nenhum nulo, coordenadas com até 3 casas. Requisitos: R08.
+- **[12_contrato_mvp_kpis.png](ouro/12_contrato_mvp_kpis.png)**: Contrato do MVP: KPIs da página inicial lidos da fato pública e da dim_tempo. Requisitos: R08.
+- **[13_contrato_mvp_ranking.png](ouro/13_contrato_mvp_ranking.png)**: Contrato do MVP: ranking da tela Regiões (fato pública + dim_subprefeitura). Requisitos: R08.
+- **[14_contrato_mvp_mapa.png](ouro/14_contrato_mvp_mapa.png)**: Contrato do MVP: pontos do mapa com hash e coordenadas aproximadas. Requisitos: R08.
+- **[02_mvp_lendo_ouro_publica.png](mvp/02_mvp_lendo_ouro_publica.png)**: Site lendo ouro_fato_alagamentos_publica, ouro_dim_tempo e ouro_clima_diario (selo Databricks). Requisitos: R08.
