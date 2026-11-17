@@ -15,7 +15,7 @@ from typing import Any, Callable
 
 from app.config import Config
 from app.dados import snapshot
-from app.dados.consultas import Consultas
+from app.dados.consultas import CLIMA, DIM_SUBPREFEITURA, DIM_TEMPO, FATO, Consultas
 from app.dados.databricks import ClienteDatabricks, DatabricksErro
 from app.texto import chave, nome_exibicao
 
@@ -105,11 +105,11 @@ class FonteDados:
         self,
         chave_cache: str,
         sql: str,
-        tabela: str,
+        tabelas: tuple[str, ...],
         transformar: Callable[[list[dict[str, Any]]], Any],
         fallback: Callable[[], Any],
     ) -> Resultado:
-        tabela_completa = self.tabela(tabela)
+        tabela_completa = ", ".join(self.tabela(t) for t in tabelas)
         if self._cliente is None:
             self._observador("snapshot", "sem_configuracao")
             return Resultado(fallback(), self._meta("snapshot", tabela_completa, None, AVISO_SNAPSHOT))
@@ -125,7 +125,7 @@ class FonteDados:
             linhas = self._cliente.executar(sql)
             resultado = Resultado(transformar(linhas), self._meta("databricks", tabela_completa, _agora_iso(), None))
         except DatabricksErro as exc:
-            logger.warning("Falha ao consultar %s no Databricks: %s", tabela, exc)
+            logger.warning("Falha ao consultar %s no Databricks: %s", tabela_completa, exc)
             self.estado.ultima_falha = _agora_iso()
             self.estado.falhas_consecutivas += 1
             self._observador("databricks", "erro")
@@ -152,7 +152,7 @@ class FonteDados:
         return self._consultar(
             "kpis",
             self._consultas.kpis,
-            "ouro_alagamentos_subprefeitura",
+            (FATO, DIM_TEMPO, CLIMA),
             transformar,
             lambda: _formatar_kpis(snapshot.KPIS),
         )
@@ -170,7 +170,7 @@ class FonteDados:
         return self._consultar(
             "subprefeituras",
             self._consultas.subprefeituras,
-            "ouro_alagamentos_subprefeitura",
+            (FATO, DIM_SUBPREFEITURA),
             transformar,
             fallback,
         )
@@ -184,7 +184,7 @@ class FonteDados:
         return self._consultar(
             "mensal",
             self._consultas.mensal,
-            "ouro_alagamentos_mensal",
+            (FATO, DIM_TEMPO),
             transformar,
             lambda: [dict(l) for l in snapshot.MENSAL],
         )
@@ -203,7 +203,7 @@ class FonteDados:
         return self._consultar(
             "clima",
             self._consultas.clima_diario,
-            "ouro_clima_diario",
+            (CLIMA,),
             transformar,
             lambda: [dict(l) for l in snapshot.CLIMA_DIARIO],
         )
@@ -234,7 +234,7 @@ class FonteDados:
         return self._consultar(
             "mapa",
             self._consultas.mapa(),
-            "prata_alagamentos",
+            (FATO, DIM_SUBPREFEITURA),
             transformar,
             fallback,
         )

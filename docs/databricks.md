@@ -16,9 +16,9 @@ A identidade do token precisa de `CAN USE` no warehouse e de `SELECT` nas tabela
 ```sql
 GRANT USE CATALOG ON CATALOG workspace TO `seu-usuario-ou-sp`;
 GRANT USE SCHEMA ON SCHEMA workspace.alertabairro TO `seu-usuario-ou-sp`;
-GRANT SELECT ON TABLE workspace.alertabairro.prata_alagamentos TO `seu-usuario-ou-sp`;
-GRANT SELECT ON TABLE workspace.alertabairro.ouro_alagamentos_subprefeitura TO `seu-usuario-ou-sp`;
-GRANT SELECT ON TABLE workspace.alertabairro.ouro_alagamentos_mensal TO `seu-usuario-ou-sp`;
+GRANT SELECT ON TABLE workspace.alertabairro.ouro_fato_alagamentos_publica TO `seu-usuario-ou-sp`;
+GRANT SELECT ON TABLE workspace.alertabairro.ouro_dim_subprefeitura TO `seu-usuario-ou-sp`;
+GRANT SELECT ON TABLE workspace.alertabairro.ouro_dim_tempo TO `seu-usuario-ou-sp`;
 GRANT SELECT ON TABLE workspace.alertabairro.ouro_clima_diario TO `seu-usuario-ou-sp`;
 ```
 
@@ -27,11 +27,11 @@ GRANT SELECT ON TABLE workspace.alertabairro.ouro_clima_diario TO `seu-usuario-o
 ```bash
 curl -s -X POST "$DATABRICKS_HOST/api/2.0/sql/statements" \
   -H "Authorization: Bearer $DATABRICKS_TOKEN" -H "Content-Type: application/json" \
-  -d "{\"warehouse_id\":\"$DATABRICKS_WAREHOUSE_ID\",\"statement\":\"SELECT mes, total_ocorrencias FROM workspace.alertabairro.ouro_alagamentos_mensal ORDER BY mes\",\"wait_timeout\":\"30s\"}" \
+  -d "{\"warehouse_id\":\"$DATABRICKS_WAREHOUSE_ID\",\"statement\":\"SELECT COUNT(*) AS total FROM workspace.alertabairro.ouro_fato_alagamentos_publica\",\"wait_timeout\":\"30s\"}" \
   | python -m json.tool | head -40
 ```
 
-Espere `"state": "SUCCEEDED"` e 8 linhas. Na Free Edition, o warehouse pode estar desligado; a primeira consulta pode demorar enquanto ele liga.
+Espere `"state": "SUCCEEDED"` e o total 292. Na Free Edition, o warehouse pode estar desligado; a primeira consulta pode demorar enquanto ele liga.
 
 ## 4. Ligar na API
 
@@ -45,15 +45,15 @@ curl -s http://localhost:8000/api/v1/status | python -m json.tool
 
 ## Consultas usadas pela API
 
-Todas ficam em `backend/app/dados/consultas.py`, são somente leitura e não recebem texto do usuário.
+Todas ficam em `backend/app/dados/consultas.py`, são somente leitura e não recebem texto do usuário. O MVP lê **apenas a camada Ouro**: a fato pública (id em SHA-256, coordenadas arredondadas) e as dimensões. Antes de usar, rode `databricks/alertabairro_ouro_contrato_mvp.py`, que cria a fato pública.
 
-| Rota | Tabela | Observação |
+| Rota | Tabelas | Observação |
 | --- | --- | --- |
-| `/kpis` | Ouro (3 tabelas) | Reproduz o dataset `kpis_alertabairro` do dashboard, que não é tabela física |
-| `/alagamentos/subprefeituras` | `ouro_alagamentos_subprefeitura` | Nomes normalizados viram nomes com acento para exibição |
-| `/alagamentos/mensal` | `ouro_alagamentos_mensal` | A API calcula as lacunas (ex.: julho) |
+| `/kpis` | `ouro_fato_alagamentos_publica`, `ouro_dim_tempo`, `ouro_clima_diario` | Reproduz o dataset `kpis_alertabairro` do dashboard |
+| `/alagamentos/subprefeituras` | `ouro_fato_alagamentos_publica`, `ouro_dim_subprefeitura` | A sigla ("MP - ") é removida para exibição |
+| `/alagamentos/mensal` | `ouro_fato_alagamentos_publica`, `ouro_dim_tempo` | A API calcula as lacunas (ex.: julho) |
 | `/clima/diario` | `ouro_clima_diario` | |
-| `/alagamentos/mapa` | `prata_alagamentos` | Até 2.000 pontos, com filtros aplicados em memória |
+| `/alagamentos/mapa` | `ouro_fato_alagamentos_publica`, `ouro_dim_subprefeitura` | Até 2.000 pontos, coordenadas com 3 casas (~110 m) |
 
 ## Problemas comuns
 

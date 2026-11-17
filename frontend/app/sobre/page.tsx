@@ -36,8 +36,8 @@ export default function PaginaSobre() {
                 <td>Ocorrências de alagamento com coordenadas e subprefeitura</td>
                 <td>janeiro a setembro de 2026 (292 registros únicos)</td>
                 <td>
-                  <code>prata_alagamentos</code>, <code>ouro_alagamentos_subprefeitura</code>,{" "}
-                  <code>ouro_alagamentos_mensal</code>
+                  <code>ouro_fato_alagamentos_publica</code>, <code>ouro_dim_subprefeitura</code>,{" "}
+                  <code>ouro_dim_tempo</code>
                 </td>
               </tr>
               <tr>
@@ -66,10 +66,15 @@ export default function PaginaSobre() {
         <ol className="regras">
           <li>Um DAG do Airflow coleta as duas fontes em paralelo e grava um arquivo por coleta, com a data no nome.</li>
           <li>Os lotes são enviados a um Volume do Unity Catalog no Databricks (por enquanto, manualmente).</li>
-          <li>A camada Bronze guarda o dado bruto; a Prata remove duplicidades e corrige tipos; a Ouro agrega por região, mês e dia.</li>
           <li>
-            A API do AlertaBairro lê a Prata e a Ouro pela SQL Statement Execution API, sempre com SQL fixo e somente leitura.
-            O navegador nunca recebe credenciais do Databricks.
+            A camada Bronze guarda o dado bruto (COPY INTO, sem duplicar); a Prata corrige tipos, aplica regras de qualidade e
+            faz MERGE pela chave; a Ouro organiza os dados em modelo estrela: uma fato de alagamentos e as dimensões de
+            subprefeitura e de tempo.
+          </li>
+          <li>
+            A API do AlertaBairro lê somente a Ouro pela SQL Statement Execution API, sempre com SQL fixo e somente leitura.
+            A fato usada pelo site é a versão pública, com identificador em hash e coordenadas arredondadas. O navegador nunca
+            recebe credenciais do Databricks.
           </li>
           <li>Se o Databricks não responde, a API usa o snapshot validado em 13/11/2026 e a tela avisa.</li>
         </ol>
@@ -106,7 +111,10 @@ export default function PaginaSobre() {
           <li>A foto é regravada no seu aparelho e de novo no servidor, sem metadados como a localização GPS da câmera.</li>
           <li>Fotos de relatos rejeitados são apagadas na hora; as demais, depois de 90 dias.</li>
           <li>Só relatos aprovados pela moderação ficam públicos.</li>
-          <li>Os dados públicos de alagamento não contêm informações pessoais.</li>
+          <li>
+            Os dados públicos de alagamento não contêm informações pessoais. Mesmo assim, a tabela da Ouro usada pelo site
+            guarda o identificador da fonte em hash (SHA-256) e as coordenadas arredondadas para cerca de 110 metros.
+          </li>
         </ul>
       </section>
 

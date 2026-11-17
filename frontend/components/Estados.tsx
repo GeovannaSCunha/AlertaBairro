@@ -30,13 +30,22 @@ export function FonteDados({ meta, extra }: { meta: Meta; extra?: string }) {
       <span className={snapshot ? "selo selo--snapshot" : "selo"}>
         {snapshot ? "Snapshot" : meta.origem === "comunidade" ? "Comunidade" : "Databricks"}
       </span>{" "}
-      Fonte: tabela <code>{meta.tabela}</code>
-      {meta.tabela_clima ? (
-        <>
-          {" "}
-          e <code>{meta.tabela_clima}</code>
-        </>
-      ) : null}
+      {(() => {
+        const tabelas = [...meta.tabela.split(", "), ...(meta.tabela_clima ? meta.tabela_clima.split(", ") : [])].filter(
+          (t, i, todas) => t && todas.indexOf(t) === i,
+        );
+        return (
+          <>
+            Fonte: {tabelas.length > 1 ? "tabelas" : "tabela"}{" "}
+            {tabelas.map((t, i) => (
+              <span key={t}>
+                {i > 0 ? (i === tabelas.length - 1 ? " e " : ", ") : null}
+                <code>{t}</code>
+              </span>
+            ))}
+          </>
+        );
+      })()}
       .{" "}
       {snapshot && meta.snapshot_validado_em
         ? `Valores validados em ${dataBr(meta.snapshot_validado_em)}. `

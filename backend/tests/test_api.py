@@ -54,7 +54,10 @@ def test_kpis_contrato(cliente):
     assert corpo["dados"]["alagamentos"]["total"] == 292
     assert corpo["dados"]["clima"]["chuva_acumulada_mm"] == 67.1
     assert corpo["meta"]["origem"] == "snapshot"
-    assert corpo["meta"]["tabela"] == "workspace.alertabairro.ouro_alagamentos_subprefeitura"
+    assert corpo["meta"]["tabela"] == (
+        "workspace.alertabairro.ouro_fato_alagamentos_publica, "
+        "workspace.alertabairro.ouro_dim_tempo, workspace.alertabairro.ouro_clima_diario"
+    )
     assert corpo["meta"]["natureza"] == "historico"
 
 
@@ -87,7 +90,7 @@ def test_mapa_com_csv_e_filtros(config_snapshot, tmp_path):
 
     pasta = Path(config_snapshot.snapshot_dir)
     pasta.mkdir(parents=True, exist_ok=True)
-    (pasta / "prata_alagamentos.csv").write_text(
+    (pasta / "pontos_mapa.csv").write_text(
         "id,data,tipo,subprefeitura,latitude,longitude\n"
         "1,2026-09-02,ALAGAMENTO,SAO MIGUEL PAULISTA,-23.49,-46.44\n"
         "2,2026-01-15,ALAGAMENTO,Campo Limpo,-23.64,-46.76\n",
