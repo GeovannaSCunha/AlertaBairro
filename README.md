@@ -44,9 +44,9 @@ Projeto CitizenTech da Global Solution FIAP 2026.2 (Engenharia de Software, 4º 
 
 | Tela | Rota | O que mostra | Dados (tabela) |
 | --- | --- | --- | --- |
-| Início | `/` | Seletor de região com o histórico, fatos da base e participação | `ouro_alagamentos_subprefeitura`, `ouro_clima_diario` |
-| Mapa | `/mapa` | Pontos históricos e relatos aprovados, com filtros por subprefeitura e mês | `prata_alagamentos` + relatos |
-| Regiões | `/regioes` | Ranking por subprefeitura e série mensal (julho indicado como lacuna) | `ouro_alagamentos_subprefeitura`, `ouro_alagamentos_mensal` |
+| Início | `/` | Seletor de região com o histórico, fatos da base e participação | `ouro_fato_alagamentos_publica`, `ouro_dim_tempo`, `ouro_clima_diario` |
+| Mapa | `/mapa` | Pontos históricos (coordenadas aproximadas) e relatos aprovados, com filtros por subprefeitura e mês | `ouro_fato_alagamentos_publica`, `ouro_dim_subprefeitura` + relatos |
+| Regiões | `/regioes` | Ranking por subprefeitura e série mensal (julho indicado como lacuna) | `ouro_fato_alagamentos_publica`, `ouro_dim_subprefeitura`, `ouro_dim_tempo` |
 | Chuva | `/chuva` | Chuva diária e acumulada e explicação do que significam os milímetros | `ouro_clima_diario` |
 | Índice | `/indice` | Índice experimental de atenção com regras abertas e simulação por data | Ouro + regras em `backend/app/indice.py` |
 | Assistente | `/assistente` | Perguntas em linguagem natural, respostas com fonte e recusa de previsões | Base de conhecimento do assistente |
@@ -86,6 +86,42 @@ API_URL=http://localhost:8000 npm run dev
 ```
 
 Sem as variáveis do Databricks, a API usa o **snapshot validado em 13/11/2026** (valores do relatório técnico) e tudo funciona, exceto os pontos históricos do mapa. Para eles, conecte o Databricks ([docs/databricks.md](docs/databricks.md)) ou exporte a Prata em CSV ([backend/data/snapshot/README.md](backend/data/snapshot/README.md)).
+
+## Pipeline de dados (Big Data Architecture & Data Integration)
+
+```mermaid
+flowchart LR
+  OM[Open-Meteo<br/>JSON] --> AF[Airflow<br/>alertabairro_coleta @daily]
+  GS[GeoSampa<br/>GeoJSON] --> AF
+  AF --> CH[(chegada/<br/>arquivos datados)]
+  CH -- upload manual, 2 lotes --> VO[(Volume<br/>Unity Catalog)]
+  VO --> BR[Bronze<br/>COPY INTO]
+  BR --> PR[Prata<br/>tipos, qualidade, MERGE]
+  PR --> OU[Ouro<br/>fato + dim_subprefeitura + dim_tempo<br/>fato pública com hash]
+  OU --> API[API FastAPI]
+  API --> WEB[Site AlertaBairro]
+```
+
+| Etapa | Onde está | O que faz |
+| --- | --- | --- |
+| Coleta | `dags/alertabairro_coleta.py` | `coletar_clima` e `coletar_alagamentos` em paralelo, `conferir_chegada` valida os arquivos; configuração em Airflow Variables e notificação de falha |
+| Bronze | `databricks/alertabairro_bronze.ipynb` | `COPY INTO` incremental: arquivos já carregados não entram de novo |
+| Auditoria da Bronze | `databricks/alertabairro_auditoria_bronze.py` | Contagens depois do 1º lote, do 2º lote e de uma nova execução (time travel do Delta) |
+| Prata | `databricks/alertabairro_prata.ipynb` | Tipagem, 4 regras de qualidade com contagem, deduplicação (584 → 292) e `MERGE` idempotente |
+| Ouro | `databricks/alertabairro_ouro.ipynb` | Modelo estrela: `ouro_fato_alagamentos`, `ouro_dim_subprefeitura`, `ouro_dim_tempo` e `ouro_clima_diario` |
+| Ouro pública (LGPD) | `databricks/alertabairro_ouro_contrato_mvp.py` | `ouro_fato_alagamentos_publica` com id em SHA-256 e coordenadas arredondadas; consultas exatas do MVP |
+| Consultas | `databricks/consultas_sql/consultas_analiticas.sql` | As 5 consultas analíticas (uma de impacto regional) |
+| Amostras | `amostras/` | Um pouco de cada fonte, no formato de chegada |
+| Evidências | `docs/evidencias/` e `docs/big_data/` | Prints de cada etapa, relatório e notas de LGPD |
+
+### Como reproduzir o pipeline
+
+1. **Airflow 3 (Docker no WSL2).** Baixe o `docker-compose.yaml` oficial do Airflow 3 numa pasta (ex.: `~/alertabairro`), crie `dags/` e `chegada/`, e acrescente o volume `./chegada:/opt/airflow/chegada` aos serviços do Airflow. Copie `dags/alertabairro_coleta.py` para `dags/` e rode `docker compose up -d`.
+2. **Variables (opcional).** Em *Admin → Variables*, cadastre `alertabairro_webhook_alerta` para receber avisos de falha. As demais Variables (`alertabairro_pasta_chegada`, `alertabairro_latitude`, `alertabairro_longitude`) têm valor padrão.
+3. **Coleta.** Ative o DAG `alertabairro_coleta` (ou dispare manualmente). Cada execução grava `clima_AAAAMMDD.json` e `alagamentos_AAAAMMDD.geojson` em `chegada/`.
+4. **Volume.** No Databricks Free Edition, crie o schema `workspace.alertabairro` e o Volume `chegada`. Envie os arquivos pela interface, um lote por dia de coleta.
+5. **Notebooks.** Importe a pasta `databricks/` e rode, nesta ordem: `alertabairro_bronze` → `alertabairro_prata` → `alertabairro_ouro` → `alertabairro_ouro_contrato_mvp`. Para conferir a idempotência, rode `alertabairro_auditoria_bronze`.
+6. **MVP.** Configure `DATABRICKS_HOST`, `DATABRICKS_WAREHOUSE_ID` e `DATABRICKS_TOKEN` no `.env` e suba o site (seção [Como rodar](#como-rodar)). A página `/api/v1/status` deve mostrar `"modo": "databricks"`.
 
 ## Testes
 
@@ -142,11 +178,14 @@ Toda resposta de dados segue o envelope `{"dados": ..., "meta": {"origem", "tabe
 ## Estrutura
 
 ```
+dags/               DAG do Airflow (coleta das duas fontes)
+databricks/         notebooks Bronze, Prata, Ouro, auditoria e contrato do MVP; consultas SQL
+amostras/           amostras das fontes e script para gerá-las
 backend/            API FastAPI (dados, índice, relatos, assistente), testes e Dockerfile
-  app/dados/        cliente Databricks, SQL fixo, snapshot e fallback
+  app/dados/        cliente Databricks, SQL fixo sobre a Ouro, snapshot e fallback
   app/assistente/   base de conhecimento, BM25, guardrails, modo regras e cliente LLM
   base_conhecimento/ documentos com fonte usados pelo assistente
 frontend/           Next.js (App Router), tema "Céu nublado", mapa Leaflet e gráficos SVG
 observabilidade/    Prometheus, alertas e painel Grafana
-docs/               arquitetura, Databricks, assistente de IA e deploy
+docs/               arquitetura, Databricks, assistente de IA, deploy, Big Data e evidências
 ```

@@ -4,7 +4,7 @@ Usado quando o Databricks não está configurado ou não responde. Assim a URL p
 continua funcionando durante a correção, e a tela sempre indica "snapshot".
 
 Os pontos do mapa não fazem parte do relatório. Para exibi-los sem conexão ao Databricks,
-exporte a tabela `prata_alagamentos` como CSV (veja `data/snapshot/README.md`).
+exporte os pontos da Ouro pública como CSV (veja `data/snapshot/README.md`).
 """
 
 from __future__ import annotations
@@ -92,9 +92,10 @@ COLUNAS_PONTOS = ("id", "data", "tipo", "subprefeitura", "latitude", "longitude"
 
 
 def carregar_pontos(snapshot_dir: str | Path) -> list[dict[str, Any]]:
-    """Lê `prata_alagamentos.csv` exportado do Databricks, se existir."""
-    caminho = Path(snapshot_dir) / "prata_alagamentos.csv"
-    if not caminho.exists():
+    """Lê `pontos_mapa.csv` (ou o nome antigo `prata_alagamentos.csv`) exportado do Databricks, se existir."""
+    candidatos = [Path(snapshot_dir) / "pontos_mapa.csv", Path(snapshot_dir) / "prata_alagamentos.csv"]
+    caminho = next((c for c in candidatos if c.exists()), None)
+    if caminho is None:
         return []
     pontos: list[dict[str, Any]] = []
     with caminho.open(encoding="utf-8-sig", newline="") as arquivo:

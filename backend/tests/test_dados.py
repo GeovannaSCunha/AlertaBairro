@@ -40,7 +40,7 @@ def test_carregar_pontos_sem_arquivo(tmp_path):
 # ----------------------------------------------------------------------------- consultas
 def test_consultas_usam_tabelas_qualificadas_e_limite_inteiro():
     c = Consultas("workspace", "alertabairro")
-    assert "workspace.alertabairro.ouro_alagamentos_mensal" in c.mensal
+    assert "workspace.alertabairro.ouro_dim_tempo" in c.mensal
     assert "LIMIT 2000" in c.mapa(999999)
     assert "LIMIT 1" in c.mapa(-5)
     for sql in (c.kpis, c.subprefeituras, c.mensal, c.clima_diario, c.mapa()):
@@ -136,7 +136,7 @@ class _ClienteFalso:
 
 
 def test_fonte_databricks_com_cache(config_snapshot):
-    cliente = _ClienteFalso({"ouro_alagamentos_mensal": [{"mes": "2026-01-01", "total_ocorrencias": 94}]})
+    cliente = _ClienteFalso({"ouro_dim_tempo": [{"mes": "2026-01-01", "total_ocorrencias": 94}]})
     relogio = [0.0]
     fonte = FonteDados(replace(config_snapshot, cache_ttl_s=60), cliente=cliente, relogio=lambda: relogio[0])
     r1 = fonte.mensal()
@@ -162,8 +162,8 @@ def test_fonte_databricks_falha_cai_para_snapshot(config_snapshot):
 def test_fonte_databricks_normaliza_nomes(config_snapshot):
     cliente = _ClienteFalso(
         {
-            "ouro_alagamentos_subprefeitura": [
-                {"codigo_subprefeitura": "MP", "subprefeitura": "SAO MIGUEL PAULISTA", "total_ocorrencias": 113,
+            "ouro_dim_subprefeitura": [
+                {"codigo_subprefeitura": "MP", "subprefeitura": "MP - SAO MIGUEL PAULISTA", "total_ocorrencias": 113,
                  "primeira_ocorrencia": "2026-01-03", "ultima_ocorrencia": "2026-09-28"},
             ]
         }
@@ -172,3 +172,22 @@ def test_fonte_databricks_normaliza_nomes(config_snapshot):
     item = fonte.subprefeituras().dados["itens"][0]
     assert item["subprefeitura"] == "São Miguel Paulista"
     assert item["codigo"] == "MP"
+
+
+def test_mvp_consome_somente_a_camada_ouro():
+    """Requisito 08 da disciplina de Big Data: o MVP lê a Ouro (fato pública + dimensões), nunca a Prata."""
+    c = Consultas("workspace", "alertabairro")
+    for sql in (c.kpis, c.subprefeituras, c.mensal, c.clima_diario, c.mapa()):
+        assert "prata_" not in sql and "bronze_" not in sql
+        assert "ouro_" in sql
+    for sql in (c.kpis, c.subprefeituras, c.mensal, c.mapa()):
+        assert "ouro_fato_alagamentos_publica" in sql
+    assert "id_ocorrencia_hash" in c.mapa() and "latitude_aprox" in c.mapa()
+    assert "id_ocorrencia " not in c.mapa().replace("id_ocorrencia_hash", "")
+
+
+def test_meta_lista_as_tabelas_da_consulta(config_snapshot):
+    meta = FonteDados(config_snapshot).subprefeituras().meta
+    assert meta["tabela"] == (
+        "workspace.alertabairro.ouro_fato_alagamentos_publica, workspace.alertabairro.ouro_dim_subprefeitura"
+    )

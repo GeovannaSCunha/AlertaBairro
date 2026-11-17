@@ -144,7 +144,7 @@ export default function MapaCliente() {
             <div className="aviso aviso--neutro">
               <p>
                 Os pontos históricos aparecem quando a API está conectada ao Databricks ou quando a tabela{" "}
-                <code>prata_alagamentos</code> é exportada para o snapshot. Enquanto isso, o mapa mostra os relatos da
+                <code>ouro_fato_alagamentos_publica</code> é exportada para o snapshot. Enquanto isso, o mapa mostra os relatos da
                 comunidade. Os totais por região estão em <Link href="/regioes">Regiões</Link>.
               </p>
             </div>

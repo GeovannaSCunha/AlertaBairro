@@ -1,0 +1,18 @@
+flowchart LR
+    AB[Open-Meteo - JSON] --> AIR[Airflow DAG agendado @daily]
+    GS[GeoSampa / Prefeitura de São Paulo - GeoJSON] --> AIR
+    AIR -->|2 tarefas em paralelo + conferir_chegada| CH[chegada/ - arquivos datados]
+    CH -->|Upload manual em 2 lotes| VOL[Volume Unity Catalog]
+    VOL --> BR[Bronze - COPY INTO Delta]
+    BR --> PR[Prata - tipos, qualidade, deduplicação, MERGE]
+    PR --> FT[Ouro - fato alagamentos]
+    PR --> DS[Ouro - dim subprefeitura]
+    PR --> DT[Ouro - dim tempo]
+    PR --> CL[Ouro - clima diário]
+    FT --> PUB[Ouro - fato pública: SHA-256 e coordenadas ~110 m]
+    PUB --> API[API FastAPI - SQL Statement Execution API]
+    DS --> API
+    DT --> API
+    CL --> API
+    API --> WEB[Site Next.js - AlertaBairro]
+    WEB --> C[Morador]

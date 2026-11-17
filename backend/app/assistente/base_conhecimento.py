@@ -114,7 +114,7 @@ def trechos_de_dados(
                     "O ranking mostra a distribuição dos registros na base, não um índice de risco, "
                     "e não considera população nem área."
                 ),
-                fonte=_rotulo_fonte(meta_sub.get("tabela", "ouro_alagamentos_subprefeitura"), meta_sub),
+                fonte=_rotulo_fonte(meta_sub.get("tabela", "ouro_fato_alagamentos_publica"), meta_sub),
             )
         )
     demais = subprefeituras.get("demais")
@@ -128,7 +128,7 @@ def trechos_de_dados(
                     f"subprefeituras somam {demais['total_ocorrencias']} registros. Os nomes delas não "
                     "constam do snapshot validado."
                 ),
-                fonte=_rotulo_fonte(meta_sub.get("tabela", "ouro_alagamentos_subprefeitura"), meta_sub),
+                fonte=_rotulo_fonte(meta_sub.get("tabela", "ouro_fato_alagamentos_publica"), meta_sub),
             )
         )
 
@@ -144,7 +144,7 @@ def trechos_de_dados(
                     f"Em {MESES[d.month - 1]} de {d.year}, a base histórica tem "
                     f"{linha['total_ocorrencias']} registros de alagamento."
                 ),
-                fonte=_rotulo_fonte(meta_mensal.get("tabela", "ouro_alagamentos_mensal"), meta_mensal),
+                fonte=_rotulo_fonte(meta_mensal.get("tabela", "ouro_fato_alagamentos_publica"), meta_mensal),
             )
         )
     if presentes:
@@ -160,7 +160,7 @@ def trechos_de_dados(
                             f"{MESES[mes - 1].capitalize()} de {ano} não tem linha na tabela mensal. "
                             "Isso é uma lacuna da base e não comprova que não houve alagamentos nesse mês."
                         ),
-                        fonte=_rotulo_fonte(meta_mensal.get("tabela", "ouro_alagamentos_mensal"), meta_mensal),
+                        fonte=_rotulo_fonte(meta_mensal.get("tabela", "ouro_fato_alagamentos_publica"), meta_mensal),
                     )
                 )
             mes += 1

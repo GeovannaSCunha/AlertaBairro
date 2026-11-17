@@ -1,16 +1,52 @@
 # airflow DAG - AlertaBairro
+#
+# Configuração e credenciais ficam em Airflow Variables (Admin > Variables), nunca no código.
+# Todas têm valor padrão, então o DAG roda sem cadastrar nada:
+#   alertabairro_pasta_chegada   pasta de pouso dos arquivos (padrão /opt/airflow/chegada)
+#   alertabairro_latitude        latitude do ponto de chuva (padrão -23.55)
+#   alertabairro_longitude       longitude do ponto de chuva (padrão -46.63)
+#   alertabairro_webhook_alerta  URL de webhook (Teams/Slack/Discord) para avisar falhas (opcional)
+# As fontes atuais (Open-Meteo e GeoSampa) não exigem chave. Se uma fonte nova exigir,
+# a chave entra como Variable (ex.: alertabairro_token_sptrans) e é lida com Variable.get().
 import json
+import logging
 from datetime import timedelta
 from pathlib import Path
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
 import pendulum
-from airflow.sdk import dag, task
+from airflow.sdk import Variable, dag, task
 
-
-PASTA_CHEGADA = Path("/opt/airflow/chegada")
 FUSO = "America/Sao_Paulo"
+log = logging.getLogger(__name__)
+
+
+def config(nome, padrao):
+    """Lê uma Airflow Variable; usa o padrão quando ela não foi cadastrada."""
+    return Variable.get(nome, default=padrao)
+
+
+def notificar_falha(context):
+    """Notificação de falha: registra no log e, se houver webhook cadastrado, envia a mensagem."""
+    ti = context.get("task_instance")
+    mensagem = (
+        f"AlertaBairro: falha na tarefa {getattr(ti, 'task_id', '?')} "
+        f"do DAG {getattr(ti, 'dag_id', '?')} (execução {context.get('run_id', '?')})."
+    )
+    log.error(mensagem)
+    webhook = config("alertabairro_webhook_alerta", "")
+    if webhook:
+        try:
+            requisicao = Request(
+                webhook,
+                data=json.dumps({"text": mensagem}).encode("utf-8"),
+                headers={"Content-Type": "application/json"},
+                method="POST",
+            )
+            urlopen(requisicao, timeout=15).close()
+        except Exception as erro:  # a notificação nunca derruba o DAG
+            log.warning("Não foi possível enviar a notificação: %s", erro)
 
 
 def consultar_api(url, parametros):
@@ -25,8 +61,9 @@ def consultar_api(url, parametros):
 
 
 def salvar_json(dados, nome_arquivo):
-    PASTA_CHEGADA.mkdir(parents=True, exist_ok=True)
-    destino = PASTA_CHEGADA / nome_arquivo
+    pasta_chegada = Path(config("alertabairro_pasta_chegada", "/opt/airflow/chegada"))
+    pasta_chegada.mkdir(parents=True, exist_ok=True)
+    destino = pasta_chegada / nome_arquivo
     temporario = destino.with_suffix(destino.suffix + ".tmp")
 
     temporario.write_text(
@@ -43,6 +80,7 @@ def salvar_json(dados, nome_arquivo):
     schedule="@daily",
     start_date=pendulum.datetime(2026, 11, 1, tz=FUSO),
     catchup=False,
+    default_args={"on_failure_callback": notificar_falha},
     tags=["alertabairro", "citizentech", "bigdata"]
 )
 def pipeline_alertabairro():
@@ -52,8 +90,8 @@ def pipeline_alertabairro():
         hoje = pendulum.now(FUSO).date()
 
         parametros = {
-            "latitude": -23.55,
-            "longitude": -46.63,
+            "latitude": float(config("alertabairro_latitude", "-23.55")),
+            "longitude": float(config("alertabairro_longitude", "-46.63")),
             "start_date": str(hoje - timedelta(days=14)),
             "end_date": str(hoje - timedelta(days=7)),
             "daily": "precipitation_sum",

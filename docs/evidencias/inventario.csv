@@ -1,0 +1,28 @@
+ordem,secao,arquivo,descricao,requisitos,imagem_original_indice,resolucao
+1,airflow,evidencias/airflow/01_graph_primeira_execucao.png,"Visão Graph - coleta paralela e validação dos arquivos, execução concluída","R02, R03",129,1366x720
+2,airflow,evidencias/airflow/02_graph_segunda_execucao.png,"Visão Graph - outra execução, três tarefas concluídas","R02, R03, R04",152,1366x720
+3,airflow,evidencias/airflow/03_dag_registrada_interface.png,DAG alertabairro_coleta localizada no Airflow,"R02, R09",156,1366x720
+4,airflow,evidencias/airflow/04_chegada_arquivos_dois_lotes.png,Pasta chegada/ com arquivos datados das duas fontes de coleta,"R02, R04",127,1219x832
+5,bronze,evidencias/bronze/01_volume_arquivos_carregados.png,Volume Databricks chegada/ com arquivos enviados,R04,140,1920x1032
+6,bronze,evidencias/bronze/02_listagem_arquivos_bronze.png,Listagem dos arquivos de entrada usados no notebook Bronze,"R04, R05",137,1920x1032
+7,bronze,evidencias/bronze/03_tabelas_bronze_criadas.png,Bronze - tabelas brutas disponíveis no catálogo,R05,135,1920x1032
+8,bronze,evidencias/bronze/04_copy_into_clima_reexecucao.png,COPY INTO clima - métricas de execução/reexecução,R05,131,1920x1032
+9,bronze,evidencias/bronze/05_copy_into_alagamentos_reexecucao.png,COPY INTO alagamentos - métricas de execução/reexecução,R05,133,1920x1032
+10,prata,evidencias/prata/01_amostras_dados_tratados.png,Prata - amostras dos registros e transformação dos campos,R06,119,1920x1032
+11,prata,evidencias/prata/02_regras_qualidade_origem.png,"Prata - inspeção de nulos, campos e duplicidades na origem",R06,120,1920x1032
+12,prata,evidencias/prata/03_validacao_584_registros.png,"Prata - 584 recebidos, 584 válidos, nenhum barrado",R06,7,1920x1032
+13,prata,evidencias/prata/04_deduplicacao_584_para_292.png,Prata - alagamentos 584 para 292; clima 16 para 10,R06,2,1920x1032
+14,prata,evidencias/prata/05_merge_alagamentos_292_unicos.png,Prata - MERGE concluído e 292 IDs únicos,R06,0,1920x1032
+15,prata,evidencias/prata/06_auditoria_merge_idempotencia.png,"Prata - duas execuções MERGE sem inserts, updates ou deletes",R06,1,1920x1032
+16,prata,evidencias/prata/07_contagens_regras_individuais.png,Consulta de auditoria de dados inválidos na origem,R06,11,1920x1032
+17,ouro,evidencias/ouro/01_validacao_fato_292.png,Ouro - tabela fato com 292 ocorrências e IDs únicos,R07,38,873x536
+18,ouro,evidencias/ouro/02_validacao_dim_tempo_71.png,Ouro - dimensão tempo com 71 datas únicas,R07,39,904x570
+19,ouro,evidencias/ouro/03_integridade_fato_dimensoes.png,Ouro - junções válidas para tempo e subprefeitura,R07,36,892x616
+20,ouro,evidencias/ouro/04_consulta_1_ranking_regioes.png,SQL 1 - ranking de alagamentos por subprefeitura,R07,37,878x731
+21,ouro,evidencias/ouro/05_consulta_2_serie_mensal.png,SQL 2 - evolução mensal das ocorrências,R07,33,879x762
+22,ouro,evidencias/ouro/06_consulta_3_tipo_ocorrencia.png,SQL 3 - proporção por tipo de ocorrência,R07,27,873x783
+23,ouro,evidencias/ouro/07_consulta_4_dia_da_semana.png,SQL 4 - distribuição por dia da semana,R07,31,833x780
+24,ouro,evidencias/ouro/08_consulta_5_impacto_regional.png,SQL 5 - concentração/recorrência regional (proxy de impacto),R07,32,872x796
+25,ouro,evidencias/ouro/09_anonimizacao_hash_292.png,"Ouro - tabela pública com 292 hashes únicos, nenhum nulo",R08,28,887x579
+26,ouro,evidencias/ouro/10_esquema_ouro_publica.png,Ouro - esquema da tabela pública sem coordenadas exatas,R08,30,870x517
+28,mvp,evidencias/mvp/01_mvp_tela_inicial_kpis.png,"Aplicação AlertaBairro exibindo 292 registros, 30 subprefeituras e indicadores climáticos",R08,51,1920x1032

@@ -14,7 +14,7 @@ flowchart LR
     V[(Volume chegada)]
     B[Bronze]
     P[Prata<br/>prata_alagamentos<br/>prata_clima]
-    OU[Ouro<br/>ouro_alagamentos_subprefeitura<br/>ouro_alagamentos_mensal<br/>ouro_clima_diario]
+    OU[Ouro<br/>fato_alagamentos_publica<br/>dim_subprefeitura · dim_tempo<br/>clima_diario]
   end
   subgraph Produto
     API[API FastAPI<br/>SQL fixo + cache + snapshot]
@@ -27,7 +27,6 @@ flowchart LR
   G --> A
   O --> A
   A --> C -- upload manual --> V --> B --> P --> OU
-  P -- Statement Execution API --> API
   OU -- Statement Execution API --> API
   API <--> DB
   API <--> LLM
