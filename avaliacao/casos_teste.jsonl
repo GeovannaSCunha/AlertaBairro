@@ -1,15 +1,15 @@
-{"id": "T01", "categoria": "subprefeitura", "pergunta": "Quantos alagamentos foram registrados na subprefeitura de São Miguel Paulista em 2026, segundo a base da Defesa Civil de São Paulo?", "trechos_ouro": ["sub:MPSAOMIGUELPAULISTA", "indice:MPSAOMIGUELPAULISTA"], "fatos": ["113"], "deve_recusar": false}
-{"id": "T02", "categoria": "subprefeitura", "pergunta": "Quantos registros de alagamento tem Campo Limpo?", "trechos_ouro": ["sub:CLCAMPOLIMPO", "indice:CLCAMPOLIMPO"], "fatos": ["24"], "deve_recusar": false}
-{"id": "T03", "categoria": "subprefeitura", "pergunta": "Quantas ocorrências de alagamento a base tem para o Butantã?", "trechos_ouro": ["sub:BTBUTANTA", "indice:BTBUTANTA"], "fatos": ["11"], "deve_recusar": false}
-{"id": "T04", "categoria": "subprefeitura", "pergunta": "Qual a posição de Vila Prudente no ranking de alagamentos?", "trechos_ouro": ["sub:VPVILAPRUDENTE"], "fatos": ["5"], "deve_recusar": false}
-{"id": "T05", "categoria": "subprefeitura", "pergunta": "Quando foi o último registro de alagamento em Pirituba?", "trechos_ouro": ["sub:PJPIRITUBAJARAGUA"], "fatos": ["26/09/2026"], "deve_recusar": false}
-{"id": "T06", "categoria": "subprefeitura", "pergunta": "Quantos alagamentos aconteceram em Itaim Paulista?", "trechos_ouro": ["sub:ITITAIMPAULISTA", "indice:ITITAIMPAULISTA"], "fatos": ["9"], "deve_recusar": false}
-{"id": "T07", "categoria": "subprefeitura", "pergunta": "Quantos alagamentos tem a Penha?", "trechos_ouro": ["sub:PEPENHA", "indice:PEPENHA"], "fatos": ["5"], "deve_recusar": false}
-{"id": "T08", "categoria": "subprefeitura", "pergunta": "Qual foi o primeiro registro de alagamento em Parelheiros?", "trechos_ouro": ["sub:PAPARELHEIROS"], "fatos": ["04/01/2026"], "deve_recusar": false}
-{"id": "T09", "categoria": "subprefeitura", "pergunta": "Quantos registros de alagamento há na Lapa?", "trechos_ouro": ["sub:LALAPA", "indice:LALAPA"], "fatos": ["1"], "deve_recusar": false}
-{"id": "T10", "categoria": "subprefeitura", "pergunta": "Quantos alagamentos a base mostra para Capela do Socorro?", "trechos_ouro": ["sub:CSCAPELADOSOCORRO", "indice:CSCAPELADOSOCORRO"], "fatos": ["9"], "deve_recusar": false}
-{"id": "T11", "categoria": "subprefeitura", "pergunta": "Quantos alagamentos foram registrados em Jaçanã/Tremembé?", "trechos_ouro": ["sub:JTJACANATREMEMBE", "indice:JTJACANATREMEMBE"], "fatos": ["6"], "deve_recusar": false}
-{"id": "T12", "categoria": "subprefeitura", "pergunta": "Quantos registros de alagamento tem a Mooca?", "trechos_ouro": ["sub:MOMOOCA", "indice:MOMOOCA"], "fatos": ["1"], "deve_recusar": false}
+{"id": "T01", "categoria": "subprefeitura", "pergunta": "Quantos alagamentos foram registrados na subprefeitura de São Miguel Paulista em 2026, segundo a base da Defesa Civil de São Paulo?", "trechos_ouro": ["sub:SAOMIGUELPAULISTA", "indice:SAOMIGUELPAULISTA"], "fatos": ["113"], "deve_recusar": false}
+{"id": "T02", "categoria": "subprefeitura", "pergunta": "Quantos registros de alagamento tem Campo Limpo?", "trechos_ouro": ["sub:CAMPOLIMPO", "indice:CAMPOLIMPO"], "fatos": ["24"], "deve_recusar": false}
+{"id": "T03", "categoria": "subprefeitura", "pergunta": "Quantas ocorrências de alagamento a base tem para o Butantã?", "trechos_ouro": ["sub:BUTANTA", "indice:BUTANTA"], "fatos": ["11"], "deve_recusar": false}
+{"id": "T04", "categoria": "subprefeitura", "pergunta": "Qual a posição de Vila Prudente no ranking de alagamentos?", "trechos_ouro": ["sub:VILAPRUDENTE"], "fatos": ["5"], "deve_recusar": false}
+{"id": "T05", "categoria": "subprefeitura", "pergunta": "Quando foi o último registro de alagamento em Pirituba?", "trechos_ouro": ["sub:PIRITUBAJARAGUA"], "fatos": ["26/09/2026"], "deve_recusar": false}
+{"id": "T06", "categoria": "subprefeitura", "pergunta": "Quantos alagamentos aconteceram em Itaim Paulista?", "trechos_ouro": ["sub:ITAIMPAULISTA", "indice:ITAIMPAULISTA"], "fatos": ["9"], "deve_recusar": false}
+{"id": "T07", "categoria": "subprefeitura", "pergunta": "Quantos alagamentos tem a Penha?", "trechos_ouro": ["sub:PENHA", "indice:PENHA"], "fatos": ["5"], "deve_recusar": false}
+{"id": "T08", "categoria": "subprefeitura", "pergunta": "Qual foi o primeiro registro de alagamento em Parelheiros?", "trechos_ouro": ["sub:PARELHEIROS"], "fatos": ["04/01/2026"], "deve_recusar": false}
+{"id": "T09", "categoria": "subprefeitura", "pergunta": "Quantos registros de alagamento há na Lapa?", "trechos_ouro": ["sub:LAPA", "indice:LAPA"], "fatos": ["1"], "deve_recusar": false}
+{"id": "T10", "categoria": "subprefeitura", "pergunta": "Quantos alagamentos a base mostra para Capela do Socorro?", "trechos_ouro": ["sub:CAPELADOSOCORRO", "indice:CAPELADOSOCORRO"], "fatos": ["9"], "deve_recusar": false}
+{"id": "T11", "categoria": "subprefeitura", "pergunta": "Quantos alagamentos foram registrados em Jaçanã/Tremembé?", "trechos_ouro": ["sub:JACANATREMEMBE", "indice:JACANATREMEMBE"], "fatos": ["6"], "deve_recusar": false}
+{"id": "T12", "categoria": "subprefeitura", "pergunta": "Quantos registros de alagamento tem a Mooca?", "trechos_ouro": ["sub:MOOCA", "indice:MOOCA"], "fatos": ["1"], "deve_recusar": false}
 {"id": "T13", "categoria": "mes", "pergunta": "Quantos alagamentos houve em janeiro de 2026?", "trechos_ouro": ["mes:2026-01"], "fatos": ["94"], "deve_recusar": false}
 {"id": "T14", "categoria": "mes", "pergunta": "Quantos registros de alagamento a base tem em setembro?", "trechos_ouro": ["mes:2026-09"], "fatos": ["95"], "deve_recusar": false}
 {"id": "T15", "categoria": "mes", "pergunta": "Quantos alagamentos foram registrados em março de 2026?", "trechos_ouro": ["mes:2026-03"], "fatos": ["48"], "deve_recusar": false}
@@ -24,7 +24,7 @@
 {"id": "T24", "categoria": "resumo", "pergunta": "Quantas subprefeituras têm registros de alagamento na base?", "trechos_ouro": ["kpi:resumo"], "fatos": ["30"], "deve_recusar": false}
 {"id": "T25", "categoria": "resumo", "pergunta": "De qual período são os dados de alagamento da base?", "trechos_ouro": ["kpi:resumo", "doc:limites_dos_dados#1"], "fatos": ["janeiro", "setembro"], "deve_recusar": false}
 {"id": "T26", "categoria": "indice", "pergunta": "Como funciona o índice experimental de atenção?", "trechos_ouro": ["doc:limites_dos_dados#3"], "fatos": ["H", "C"], "deve_recusar": false}
-{"id": "T27", "categoria": "indice", "pergunta": "Qual o nível de atenção do índice experimental para Campo Limpo?", "trechos_ouro": ["indice:CLCAMPOLIMPO"], "fatos": ["moderada"], "deve_recusar": false}
+{"id": "T27", "categoria": "indice", "pergunta": "Qual o nível de atenção do índice experimental para Campo Limpo?", "trechos_ouro": ["indice:CAMPOLIMPO"], "fatos": ["moderada"], "deve_recusar": false}
 {"id": "T28", "categoria": "indice", "pergunta": "O ranking de subprefeituras é um índice de risco?", "trechos_ouro": ["doc:limites_dos_dados#2"], "fatos": ["não"], "deve_recusar": false}
 {"id": "T29", "categoria": "documento", "pergunta": "O que significa um milímetro de chuva?", "trechos_ouro": ["doc:chuva_e_seguranca#1"], "fatos": ["1 litro"], "deve_recusar": false}
 {"id": "T30", "categoria": "documento", "pergunta": "Qual o telefone dos Bombeiros e da Defesa Civil?", "trechos_ouro": ["doc:chuva_e_seguranca#2"], "fatos": ["193", "199"], "deve_recusar": false}

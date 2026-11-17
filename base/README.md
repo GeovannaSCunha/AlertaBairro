@@ -1,7 +1,8 @@
 # Base de conhecimento do assistente
 
 `trechos.json` é a base que o assistente do AlertaBairro usa para responder. Ela foi exportada da API em
-execução (`GET /api/v1/assistente/base`) em 17/11/2026, com os dados vindos do Databricks (camada Ouro).
+execução (`GET /api/v1/assistente/base`) em 17/11/2026, com os dados vindos do Databricks (camada Ouro,
+tabela pública pseudonimizada `ouro_fato_alagamentos_publica`).
 
 Cada trecho tem:
 - `id`: identificador estável, citado pelo modelo em `fontes`;
@@ -17,9 +18,9 @@ mesmas palavras que o cidadão usa.
 
 | Grupo (prefixo do id) | Origem | Formato de origem | Licença / termos | Nº de trechos |
 |---|---|---|---|---|
-| `kpi:` resumo da base | `workspace.alertabairro.ouro_alagamentos_subprefeitura` (GeoSampa / Defesa Civil, via Databricks) | Tabela Delta (Ouro) | Dados abertos do GeoSampa, Prefeitura de São Paulo ([licença de uso](https://prefeitura.sp.gov.br/web/licenciamento/w/desenvolvimento_urbano/dados_estatisticos/legislacao_sig-1)) | 1 |
-| `sub:` alagamentos por subprefeitura | `ouro_alagamentos_subprefeitura` | Tabela Delta (Ouro) | idem | 30 |
-| `mes:` alagamentos por mês (inclui a lacuna de julho) | `ouro_alagamentos_mensal` | Tabela Delta (Ouro) | idem | 9 |
+| `kpi:` resumo da base | `workspace.alertabairro.ouro_fato_alagamentos_publica` + `ouro_dim_tempo` (GeoSampa / Defesa Civil, via Databricks) | Tabela Delta (Ouro) | Dados abertos do GeoSampa, Prefeitura de São Paulo ([licença de uso](https://prefeitura.sp.gov.br/web/licenciamento/w/desenvolvimento_urbano/dados_estatisticos/legislacao_sig-1)) | 1 |
+| `sub:` alagamentos por subprefeitura | `ouro_fato_alagamentos_publica` + `ouro_dim_subprefeitura` | Tabela Delta (Ouro) | idem | 30 |
+| `mes:` alagamentos por mês (inclui a lacuna de julho) | `ouro_fato_alagamentos_publica` + `ouro_dim_tempo` | Tabela Delta (Ouro) | idem | 9 |
 | `indice:` índice experimental por subprefeitura | Calculado pela API a partir das tabelas Ouro (regras em `backend/app/indice.py`) | Regras documentadas | Derivado; mesmos termos das fontes | 30 |
 | `clima:` resumo da chuva | `ouro_clima_diario` (Open-Meteo, via Databricks) | Tabela Delta (Ouro) | [CC BY 4.0](https://open-meteo.com/en/license) | 1 |
 | `chuva:` chuva por dia | `ouro_clima_diario` | Tabela Delta (Ouro) | CC BY 4.0 | 10 |

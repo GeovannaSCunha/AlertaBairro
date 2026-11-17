@@ -36,6 +36,7 @@ def avaliar() -> dict:
             "acerto_3": bool(ouro) and bool(set(ids[:3]) & ouro),
             "score_top1": top.score if top else 0.0,
             "cobertura_top1": round(top.cobertura, 2) if top else 0.0,
+            "termos_casados_top1": top.termos_casados if top else 0,
             "relevante": relevante(top),
         })
 
@@ -50,7 +51,8 @@ def avaliar() -> dict:
     curva = []
     for limiar in LIMIARES:
         def passa(r: dict, lim: float = limiar) -> bool:
-            return r["score_top1"] >= lim and r["cobertura_top1"] >= COBERTURA_MINIMA
+            # Mesma regra de regras.relevante(), variando só o score mínimo.
+            return r["score_top1"] >= lim and (r["termos_casados_top1"] >= 2 or r["cobertura_top1"] >= COBERTURA_MINIMA)
         curva.append({
             "limiar": limiar,
             "respondiveis_aceitas": round(sum(passa(r) for r in respondiveis) / n, 3),
@@ -65,6 +67,8 @@ def avaliar() -> dict:
         "barrados_pelo_guardrail": [r["id"] for r in linhas if r["guardrail"] != "ok"],
         "recall_1": round(recall_1, 3),
         "recall_3": round(recall_3, 3),
+        "menor_score_respondivel": min(r["score_top1"] for r in respondiveis),
+        "maior_score_nao_consta": max(r["score_top1"] for r in nao_consta),
         "limiar_produto": {"score": LIMIAR_RELEVANCIA, "cobertura": COBERTURA_MINIMA},
         "regra_produto_aceita": {
             "respondiveis": round(sum(r["relevante"] for r in respondiveis) / n, 3),
@@ -87,6 +91,8 @@ def imprimir(res: dict) -> None:
     for c in res["curva_limiar"]:
         print(f"{c['limiar']:>6} | {c['respondiveis_aceitas']:>20.1%} | {c['respondiveis_corretas_aceitas']:>16.1%} | "
               f"{c['nao_consta_aceitas']:>10.1%}")
+    print(f"\nMenor score top-1 entre respondíveis: {res['menor_score_respondivel']:.2f} | "
+          f"maior score top-1 entre 'não consta': {res['maior_score_nao_consta']:.2f}")
     rp = res["regra_produto_aceita"]
     print(f"\nRegra do produto (score >= {res['limiar_produto']['score']} e cobertura/termos): "
           f"aceita {rp['respondiveis']:.1%} das respondíveis e {rp['nao_consta']:.1%} das 'não consta'")
