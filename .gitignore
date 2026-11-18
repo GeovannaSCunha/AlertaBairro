@@ -32,3 +32,7 @@ npm-debug.log*
 Thumbs.db
 .idea/
 .vscode/
+
+# Modelos treinados (GGUF ~1,9 GB): ficam fora do Git
+modelos/
+*.gguf
