@@ -93,6 +93,10 @@ class ServicoAssistente:
         achados = busca.buscar(pergunta, k=K_TRECHOS)
 
         if self._llm is not None:
+            # Limiar de relevância (medido em avaliacao/recall.py): se nem o melhor trecho é relevante,
+            # recusa sem chamar o modelo. Assim o modelo nunca recebe contexto que não responde à pergunta.
+            if not regras.relevante(achados[0] if achados else None):
+                return asdict(regras.recusa_nao_consta(modo="limiar")) | {"categoria": "ok"}
             try:
                 saida = self._llm.gerar(pergunta, achados)
                 fontes = [

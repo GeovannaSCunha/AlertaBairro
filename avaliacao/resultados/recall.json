@@ -1,0 +1,1129 @@
+{
+  "total_casos": 50,
+  "avaliados_na_busca": 35,
+  "nao_consta_na_busca": 10,
+  "barrados_pelo_guardrail": [
+    "T10",
+    "T47",
+    "T48",
+    "T49",
+    "T50"
+  ],
+  "recall_1": 0.943,
+  "recall_3": 0.943,
+  "menor_score_respondivel": 3.3962,
+  "maior_score_nao_consta": 11.4081,
+  "limiar_produto": {
+    "score": 2.0,
+    "cobertura": 0.5
+  },
+  "regra_produto_aceita": {
+    "respondiveis": 1.0,
+    "nao_consta": 0.7
+  },
+  "curva_limiar": [
+    {
+      "limiar": 0.0,
+      "respondiveis_aceitas": 1.0,
+      "respondiveis_corretas_aceitas": 0.943,
+      "nao_consta_aceitas": 0.7
+    },
+    {
+      "limiar": 1.0,
+      "respondiveis_aceitas": 1.0,
+      "respondiveis_corretas_aceitas": 0.943,
+      "nao_consta_aceitas": 0.7
+    },
+    {
+      "limiar": 1.5,
+      "respondiveis_aceitas": 1.0,
+      "respondiveis_corretas_aceitas": 0.943,
+      "nao_consta_aceitas": 0.7
+    },
+    {
+      "limiar": 2.0,
+      "respondiveis_aceitas": 1.0,
+      "respondiveis_corretas_aceitas": 0.943,
+      "nao_consta_aceitas": 0.7
+    },
+    {
+      "limiar": 2.5,
+      "respondiveis_aceitas": 1.0,
+      "respondiveis_corretas_aceitas": 0.943,
+      "nao_consta_aceitas": 0.7
+    },
+    {
+      "limiar": 3.0,
+      "respondiveis_aceitas": 1.0,
+      "respondiveis_corretas_aceitas": 0.943,
+      "nao_consta_aceitas": 0.7
+    },
+    {
+      "limiar": 4.0,
+      "respondiveis_aceitas": 0.943,
+      "respondiveis_corretas_aceitas": 0.943,
+      "nao_consta_aceitas": 0.6
+    },
+    {
+      "limiar": 5.0,
+      "respondiveis_aceitas": 0.886,
+      "respondiveis_corretas_aceitas": 0.886,
+      "nao_consta_aceitas": 0.5
+    },
+    {
+      "limiar": 6.0,
+      "respondiveis_aceitas": 0.829,
+      "respondiveis_corretas_aceitas": 0.829,
+      "nao_consta_aceitas": 0.4
+    }
+  ],
+  "erros_top3": [
+    {
+      "id": "T22",
+      "categoria": "chuva",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "chuva:2026-10-28",
+        "chuva:2026-10-30",
+        "chuva:2026-10-31"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 3.3962,
+      "cobertura_top1": 1.0,
+      "termos_casados_top1": 2,
+      "relevante": true
+    },
+    {
+      "id": "T24",
+      "categoria": "resumo",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "sub:SE",
+        "sub:IPIRANGA",
+        "sub:BUTANTA"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 3.6164,
+      "cobertura_top1": 1.0,
+      "termos_casados_top1": 4,
+      "relevante": true
+    }
+  ],
+  "erros_top1": [],
+  "nao_consta_detalhe": [
+    {
+      "id": "T37",
+      "categoria": "nao_consta",
+      "guardrail": "ok",
+      "respondivel": false,
+      "top3": [
+        "mes:2026-07",
+        "doc:limites_dos_dados#4",
+        "chuva:2026-10-28"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 6.041,
+      "cobertura_top1": 0.4,
+      "termos_casados_top1": 2,
+      "relevante": true
+    },
+    {
+      "id": "T38",
+      "categoria": "nao_consta",
+      "guardrail": "ok",
+      "respondivel": false,
+      "top3": [
+        "doc:chuva_e_seguranca#3",
+        "mes:2026-04",
+        "mes:2026-05"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 4.381,
+      "cobertura_top1": 0.5,
+      "termos_casados_top1": 2,
+      "relevante": true
+    },
+    {
+      "id": "T39",
+      "categoria": "nao_consta",
+      "guardrail": "ok",
+      "respondivel": false,
+      "top3": [
+        "chuva:2026-10-28",
+        "chuva:2026-10-30",
+        "chuva:2026-10-31"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 6.4271,
+      "cobertura_top1": 0.75,
+      "termos_casados_top1": 3,
+      "relevante": true
+    },
+    {
+      "id": "T40",
+      "categoria": "nao_consta",
+      "guardrail": "ok",
+      "respondivel": false,
+      "top3": [
+        "mes:2026-04",
+        "mes:2026-05",
+        "mes:2026-08"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 1.2967,
+      "cobertura_top1": 0.33,
+      "termos_casados_top1": 1,
+      "relevante": false
+    },
+    {
+      "id": "T41",
+      "categoria": "nao_consta",
+      "guardrail": "ok",
+      "respondivel": false,
+      "top3": [],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 0.0,
+      "cobertura_top1": 0.0,
+      "termos_casados_top1": 0,
+      "relevante": false
+    },
+    {
+      "id": "T42",
+      "categoria": "nao_consta",
+      "guardrail": "ok",
+      "respondivel": false,
+      "top3": [
+        "kpi:resumo",
+        "doc:sobre_o_app#2",
+        "mes:2026-04"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 5.4154,
+      "cobertura_top1": 0.6,
+      "termos_casados_top1": 3,
+      "relevante": true
+    },
+    {
+      "id": "T43",
+      "categoria": "nao_consta",
+      "guardrail": "ok",
+      "respondivel": false,
+      "top3": [
+        "doc:sobre_o_app#6",
+        "doc:chuva_e_seguranca#3"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 4.1808,
+      "cobertura_top1": 0.25,
+      "termos_casados_top1": 1,
+      "relevante": false
+    },
+    {
+      "id": "T44",
+      "categoria": "nao_consta",
+      "guardrail": "ok",
+      "respondivel": false,
+      "top3": [
+        "chuva:2026-10-28",
+        "chuva:2026-10-30",
+        "chuva:2026-10-31"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 3.9111,
+      "cobertura_top1": 0.67,
+      "termos_casados_top1": 2,
+      "relevante": true
+    },
+    {
+      "id": "T45",
+      "categoria": "nao_consta",
+      "guardrail": "ok",
+      "respondivel": false,
+      "top3": [
+        "sub:SAOMIGUELPAULISTA",
+        "indice:SAOMIGUELPAULISTA",
+        "doc:limites_dos_dados#5"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 11.4081,
+      "cobertura_top1": 0.5,
+      "termos_casados_top1": 4,
+      "relevante": true
+    },
+    {
+      "id": "T46",
+      "categoria": "nao_consta",
+      "guardrail": "ok",
+      "respondivel": false,
+      "top3": [
+        "mes:2026-07",
+        "doc:limites_dos_dados#4",
+        "sub:PARELHEIROS"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 6.041,
+      "cobertura_top1": 0.5,
+      "termos_casados_top1": 2,
+      "relevante": true
+    }
+  ],
+  "linhas": [
+    {
+      "id": "T01",
+      "categoria": "subprefeitura",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "sub:SAOMIGUELPAULISTA",
+        "indice:SAOMIGUELPAULISTA",
+        "kpi:resumo"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 15.1674,
+      "cobertura_top1": 0.62,
+      "termos_casados_top1": 8,
+      "relevante": true
+    },
+    {
+      "id": "T02",
+      "categoria": "subprefeitura",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "sub:CAMPOLIMPO",
+        "indice:CAMPOLIMPO",
+        "mes:2026-04"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 11.0195,
+      "cobertura_top1": 1.0,
+      "termos_casados_top1": 4,
+      "relevante": true
+    },
+    {
+      "id": "T03",
+      "categoria": "subprefeitura",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "sub:BUTANTA",
+        "indice:BUTANTA",
+        "kpi:resumo"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 6.1939,
+      "cobertura_top1": 0.75,
+      "termos_casados_top1": 3,
+      "relevante": true
+    },
+    {
+      "id": "T04",
+      "categoria": "subprefeitura",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "sub:VILAPRUDENTE",
+        "indice:VILAPRUDENTE",
+        "sub:VILAMARIAVILAGUILHERME"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 10.9135,
+      "cobertura_top1": 1.0,
+      "termos_casados_top1": 5,
+      "relevante": true
+    },
+    {
+      "id": "T05",
+      "categoria": "subprefeitura",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "sub:PIRITUBAJARAGUA",
+        "indice:PIRITUBAJARAGUA",
+        "sub:SE"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 7.2385,
+      "cobertura_top1": 1.0,
+      "termos_casados_top1": 4,
+      "relevante": true
+    },
+    {
+      "id": "T06",
+      "categoria": "subprefeitura",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "sub:ITAIMPAULISTA",
+        "indice:ITAIMPAULISTA",
+        "sub:SAOMIGUELPAULISTA"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 9.8091,
+      "cobertura_top1": 0.75,
+      "termos_casados_top1": 3,
+      "relevante": true
+    },
+    {
+      "id": "T07",
+      "categoria": "subprefeitura",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "sub:PENHA",
+        "indice:PENHA",
+        "mes:2026-04"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 5.8115,
+      "cobertura_top1": 1.0,
+      "termos_casados_top1": 2,
+      "relevante": true
+    },
+    {
+      "id": "T08",
+      "categoria": "subprefeitura",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "sub:PARELHEIROS",
+        "indice:PARELHEIROS",
+        "sub:SE"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 7.4154,
+      "cobertura_top1": 1.0,
+      "termos_casados_top1": 4,
+      "relevante": true
+    },
+    {
+      "id": "T09",
+      "categoria": "subprefeitura",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "sub:LAPA",
+        "indice:LAPA",
+        "mes:2026-04"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 6.3587,
+      "cobertura_top1": 1.0,
+      "termos_casados_top1": 3,
+      "relevante": true
+    },
+    {
+      "id": "T10",
+      "categoria": "subprefeitura",
+      "guardrail": "emergencia",
+      "respondivel": true,
+      "top3": [
+        "sub:CAPELADOSOCORRO",
+        "indice:CAPELADOSOCORRO",
+        "doc:chuva_e_seguranca#2"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 11.5043,
+      "cobertura_top1": 1.0,
+      "termos_casados_top1": 5,
+      "relevante": true
+    },
+    {
+      "id": "T11",
+      "categoria": "subprefeitura",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "indice:JACANATREMEMBE",
+        "sub:JACANATREMEMBE",
+        "doc:sobre_o_app#2"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 10.4842,
+      "cobertura_top1": 0.4,
+      "termos_casados_top1": 2,
+      "relevante": true
+    },
+    {
+      "id": "T12",
+      "categoria": "subprefeitura",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "sub:MOOCA",
+        "indice:MOOCA",
+        "mes:2026-04"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 6.3587,
+      "cobertura_top1": 1.0,
+      "termos_casados_top1": 3,
+      "relevante": true
+    },
+    {
+      "id": "T13",
+      "categoria": "mes",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "mes:2026-01",
+        "mes:2026-07",
+        "doc:limites_dos_dados#4"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 8.4051,
+      "cobertura_top1": 0.75,
+      "termos_casados_top1": 3,
+      "relevante": true
+    },
+    {
+      "id": "T14",
+      "categoria": "mes",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "mes:2026-09",
+        "kpi:resumo",
+        "doc:limites_dos_dados#1"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 8.1996,
+      "cobertura_top1": 1.0,
+      "termos_casados_top1": 4,
+      "relevante": true
+    },
+    {
+      "id": "T15",
+      "categoria": "mes",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "mes:2026-03",
+        "kpi:resumo",
+        "doc:sobre_o_app#2"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 9.9458,
+      "cobertura_top1": 0.6,
+      "termos_casados_top1": 3,
+      "relevante": true
+    },
+    {
+      "id": "T16",
+      "categoria": "mes",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "mes:2026-05",
+        "mes:2026-04",
+        "mes:2026-08"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 9.0015,
+      "cobertura_top1": 0.67,
+      "termos_casados_top1": 2,
+      "relevante": true
+    },
+    {
+      "id": "T17",
+      "categoria": "mes",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "mes:2026-07",
+        "doc:limites_dos_dados#4",
+        "mes:2026-04"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 12.3671,
+      "cobertura_top1": 0.6,
+      "termos_casados_top1": 3,
+      "relevante": true
+    },
+    {
+      "id": "T18",
+      "categoria": "chuva",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "chuva:2026-10-29",
+        "clima:resumo",
+        "chuva:2026-10-28"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 11.0116,
+      "cobertura_top1": 1.0,
+      "termos_casados_top1": 4,
+      "relevante": true
+    },
+    {
+      "id": "T19",
+      "categoria": "chuva",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "chuva:2026-11-01",
+        "doc:chuva_e_seguranca#1",
+        "chuva:2026-11-02"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 7.0791,
+      "cobertura_top1": 0.67,
+      "termos_casados_top1": 4,
+      "relevante": true
+    },
+    {
+      "id": "T20",
+      "categoria": "chuva",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "chuva:2026-11-03",
+        "chuva:2026-11-02",
+        "chuva:2026-11-04"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 10.3914,
+      "cobertura_top1": 1.0,
+      "termos_casados_top1": 4,
+      "relevante": true
+    },
+    {
+      "id": "T21",
+      "categoria": "chuva",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "clima:resumo",
+        "doc:limites_dos_dados#1",
+        "chuva:2026-10-28"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 4.5749,
+      "cobertura_top1": 0.6,
+      "termos_casados_top1": 3,
+      "relevante": true
+    },
+    {
+      "id": "T22",
+      "categoria": "chuva",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "chuva:2026-10-28",
+        "chuva:2026-10-30",
+        "chuva:2026-10-31"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 3.3962,
+      "cobertura_top1": 1.0,
+      "termos_casados_top1": 2,
+      "relevante": true
+    },
+    {
+      "id": "T23",
+      "categoria": "resumo",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "kpi:resumo",
+        "doc:sobre_o_app#2",
+        "doc:sobre_o_app#1"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 9.6744,
+      "cobertura_top1": 0.83,
+      "termos_casados_top1": 5,
+      "relevante": true
+    },
+    {
+      "id": "T24",
+      "categoria": "resumo",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "sub:SE",
+        "sub:IPIRANGA",
+        "sub:BUTANTA"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 3.6164,
+      "cobertura_top1": 1.0,
+      "termos_casados_top1": 4,
+      "relevante": true
+    },
+    {
+      "id": "T25",
+      "categoria": "resumo",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "doc:limites_dos_dados#1",
+        "clima:resumo",
+        "kpi:resumo"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 6.5015,
+      "cobertura_top1": 1.0,
+      "termos_casados_top1": 5,
+      "relevante": true
+    },
+    {
+      "id": "T26",
+      "categoria": "indice",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "doc:limites_dos_dados#3",
+        "indice:SE",
+        "indice:IPIRANGA"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 5.9437,
+      "cobertura_top1": 1.0,
+      "termos_casados_top1": 4,
+      "relevante": true
+    },
+    {
+      "id": "T27",
+      "categoria": "indice",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "indice:CAMPOLIMPO",
+        "sub:CAMPOLIMPO",
+        "indice:SE"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 14.3259,
+      "cobertura_top1": 0.83,
+      "termos_casados_top1": 5,
+      "relevante": true
+    },
+    {
+      "id": "T28",
+      "categoria": "indice",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "doc:limites_dos_dados#2",
+        "sub:SE",
+        "sub:IPIRANGA"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 4.7597,
+      "cobertura_top1": 1.0,
+      "termos_casados_top1": 4,
+      "relevante": true
+    },
+    {
+      "id": "T29",
+      "categoria": "documento",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "doc:chuva_e_seguranca#1",
+        "doc:limites_dos_dados#5",
+        "doc:limites_dos_dados#1"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 10.0056,
+      "cobertura_top1": 1.0,
+      "termos_casados_top1": 3,
+      "relevante": true
+    },
+    {
+      "id": "T30",
+      "categoria": "documento",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "doc:chuva_e_seguranca#2",
+        "doc:sobre_o_app#4",
+        "indice:SE"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 13.5905,
+      "cobertura_top1": 1.0,
+      "termos_casados_top1": 4,
+      "relevante": true
+    },
+    {
+      "id": "T31",
+      "categoria": "documento",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "doc:chuva_e_seguranca#3",
+        "mes:2026-04",
+        "mes:2026-05"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 7.8798,
+      "cobertura_top1": 0.75,
+      "termos_casados_top1": 3,
+      "relevante": true
+    },
+    {
+      "id": "T32",
+      "categoria": "documento",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "doc:sobre_o_app#2",
+        "kpi:resumo",
+        "doc:sobre_o_app#3"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 14.7026,
+      "cobertura_top1": 0.75,
+      "termos_casados_top1": 3,
+      "relevante": true
+    },
+    {
+      "id": "T33",
+      "categoria": "documento",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "doc:sobre_o_app#3",
+        "doc:sobre_o_app#2",
+        "doc:sobre_o_app#4"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 14.7214,
+      "cobertura_top1": 0.5,
+      "termos_casados_top1": 3,
+      "relevante": true
+    },
+    {
+      "id": "T34",
+      "categoria": "documento",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "doc:sobre_o_app#4",
+        "doc:sobre_o_app#2",
+        "doc:sobre_o_app#5"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 15.8775,
+      "cobertura_top1": 0.8,
+      "termos_casados_top1": 4,
+      "relevante": true
+    },
+    {
+      "id": "T35",
+      "categoria": "documento",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "doc:sobre_o_app#6"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 20.904,
+      "cobertura_top1": 1.0,
+      "termos_casados_top1": 5,
+      "relevante": true
+    },
+    {
+      "id": "T36",
+      "categoria": "documento",
+      "guardrail": "ok",
+      "respondivel": true,
+      "top3": [
+        "doc:limites_dos_dados#5",
+        "doc:sobre_o_app#3",
+        "clima:resumo"
+      ],
+      "acerto_1": true,
+      "acerto_3": true,
+      "score_top1": 9.8125,
+      "cobertura_top1": 0.6,
+      "termos_casados_top1": 3,
+      "relevante": true
+    },
+    {
+      "id": "T37",
+      "categoria": "nao_consta",
+      "guardrail": "ok",
+      "respondivel": false,
+      "top3": [
+        "mes:2026-07",
+        "doc:limites_dos_dados#4",
+        "chuva:2026-10-28"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 6.041,
+      "cobertura_top1": 0.4,
+      "termos_casados_top1": 2,
+      "relevante": true
+    },
+    {
+      "id": "T38",
+      "categoria": "nao_consta",
+      "guardrail": "ok",
+      "respondivel": false,
+      "top3": [
+        "doc:chuva_e_seguranca#3",
+        "mes:2026-04",
+        "mes:2026-05"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 4.381,
+      "cobertura_top1": 0.5,
+      "termos_casados_top1": 2,
+      "relevante": true
+    },
+    {
+      "id": "T39",
+      "categoria": "nao_consta",
+      "guardrail": "ok",
+      "respondivel": false,
+      "top3": [
+        "chuva:2026-10-28",
+        "chuva:2026-10-30",
+        "chuva:2026-10-31"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 6.4271,
+      "cobertura_top1": 0.75,
+      "termos_casados_top1": 3,
+      "relevante": true
+    },
+    {
+      "id": "T40",
+      "categoria": "nao_consta",
+      "guardrail": "ok",
+      "respondivel": false,
+      "top3": [
+        "mes:2026-04",
+        "mes:2026-05",
+        "mes:2026-08"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 1.2967,
+      "cobertura_top1": 0.33,
+      "termos_casados_top1": 1,
+      "relevante": false
+    },
+    {
+      "id": "T41",
+      "categoria": "nao_consta",
+      "guardrail": "ok",
+      "respondivel": false,
+      "top3": [],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 0.0,
+      "cobertura_top1": 0.0,
+      "termos_casados_top1": 0,
+      "relevante": false
+    },
+    {
+      "id": "T42",
+      "categoria": "nao_consta",
+      "guardrail": "ok",
+      "respondivel": false,
+      "top3": [
+        "kpi:resumo",
+        "doc:sobre_o_app#2",
+        "mes:2026-04"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 5.4154,
+      "cobertura_top1": 0.6,
+      "termos_casados_top1": 3,
+      "relevante": true
+    },
+    {
+      "id": "T43",
+      "categoria": "nao_consta",
+      "guardrail": "ok",
+      "respondivel": false,
+      "top3": [
+        "doc:sobre_o_app#6",
+        "doc:chuva_e_seguranca#3"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 4.1808,
+      "cobertura_top1": 0.25,
+      "termos_casados_top1": 1,
+      "relevante": false
+    },
+    {
+      "id": "T44",
+      "categoria": "nao_consta",
+      "guardrail": "ok",
+      "respondivel": false,
+      "top3": [
+        "chuva:2026-10-28",
+        "chuva:2026-10-30",
+        "chuva:2026-10-31"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 3.9111,
+      "cobertura_top1": 0.67,
+      "termos_casados_top1": 2,
+      "relevante": true
+    },
+    {
+      "id": "T45",
+      "categoria": "nao_consta",
+      "guardrail": "ok",
+      "respondivel": false,
+      "top3": [
+        "sub:SAOMIGUELPAULISTA",
+        "indice:SAOMIGUELPAULISTA",
+        "doc:limites_dos_dados#5"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 11.4081,
+      "cobertura_top1": 0.5,
+      "termos_casados_top1": 4,
+      "relevante": true
+    },
+    {
+      "id": "T46",
+      "categoria": "nao_consta",
+      "guardrail": "ok",
+      "respondivel": false,
+      "top3": [
+        "mes:2026-07",
+        "doc:limites_dos_dados#4",
+        "sub:PARELHEIROS"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 6.041,
+      "cobertura_top1": 0.5,
+      "termos_casados_top1": 2,
+      "relevante": true
+    },
+    {
+      "id": "T47",
+      "categoria": "previsao",
+      "guardrail": "previsao",
+      "respondivel": false,
+      "top3": [
+        "sub:SAOMIGUELPAULISTA",
+        "indice:SAOMIGUELPAULISTA",
+        "sub:ITAIMPAULISTA"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 11.4081,
+      "cobertura_top1": 0.67,
+      "termos_casados_top1": 4,
+      "relevante": true
+    },
+    {
+      "id": "T48",
+      "categoria": "previsao",
+      "guardrail": "previsao",
+      "respondivel": false,
+      "top3": [
+        "indice:PENHA",
+        "sub:PENHA",
+        "doc:chuva_e_seguranca#4"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 5.3569,
+      "cobertura_top1": 0.2,
+      "termos_casados_top1": 1,
+      "relevante": false
+    },
+    {
+      "id": "T49",
+      "categoria": "previsao",
+      "guardrail": "previsao",
+      "respondivel": false,
+      "top3": [
+        "indice:SE",
+        "doc:limites_dos_dados#1",
+        "indice:IPIRANGA"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 1.9563,
+      "cobertura_top1": 0.5,
+      "termos_casados_top1": 2,
+      "relevante": false
+    },
+    {
+      "id": "T50",
+      "categoria": "emergencia",
+      "guardrail": "emergencia",
+      "respondivel": false,
+      "top3": [
+        "doc:chuva_e_seguranca#3",
+        "indice:CAPELADOSOCORRO",
+        "doc:chuva_e_seguranca#1"
+      ],
+      "acerto_1": false,
+      "acerto_3": false,
+      "score_top1": 11.8063,
+      "cobertura_top1": 0.5,
+      "termos_casados_top1": 3,
+      "relevante": true
+    }
+  ]
+}

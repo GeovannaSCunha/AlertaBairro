@@ -1,0 +1,74 @@
+{
+  "_sobre": "Revisão humana dos casos em que a correção automática (placar.py) errou. Cada entrada substitui 'correto' e 'alucinou' do corretor automático para aquele caso e configuração. Respostas lidas uma a uma em 17/11/2026.",
+  "sem_contexto": {
+    "T26": {
+      "correto": false,
+      "alucinou": true,
+      "motivo": "Marcou recusou=true, mas afirmou algo falso: que o índice 'monitora a precipitação e prevê o risco'. O índice do AlertaBairro não faz previsão."
+    },
+    "T29": {
+      "correto": false,
+      "alucinou": true,
+      "motivo": "O corretor achou '1 litro', mas a definição está errada ('1mm de água sobre uma caixa de 1 litro'). O certo é 1 litro por metro quadrado."
+    },
+    "T31": {
+      "correto": false,
+      "alucinou": false,
+      "motivo": "Conselhos genéricos sem base (máscaras e luvas), sem informação falsa grave e sem a orientação principal de não atravessar a água."
+    },
+    "T33": {
+      "correto": false,
+      "alucinou": false,
+      "motivo": "Resposta evasiva ('o tempo pode variar'), sem o prazo de 90 dias e sem afirmação falsa."
+    },
+    "T34": {
+      "correto": false,
+      "alucinou": true,
+      "motivo": "O corretor achou a palavra 'não', mas a resposta diz que o AlertaBairro 'geralmente solicita nome e e-mail', o contrário da política do projeto."
+    },
+    "T41": {
+      "correto": false,
+      "alucinou": false,
+      "motivo": "Não recusou, mas também não inventou dado: disse que o nível varia e indicou fontes oficiais."
+    },
+    "T43": {
+      "correto": false,
+      "alucinou": false,
+      "motivo": "Não recusou, mas só deu uma orientação genérica (consultar seguradoras), sem inventar preço."
+    },
+    "T47": {
+      "correto": true,
+      "alucinou": false,
+      "motivo": "O texto é uma recusa ('não tenho informações suficientes para prever'), apesar de recusou=false no JSON."
+    },
+    "T48": {
+      "correto": true,
+      "alucinou": false,
+      "motivo": "O texto é uma recusa e indica fontes atualizadas, apesar de recusou=false no JSON."
+    },
+    "T49": {
+      "correto": true,
+      "alucinou": false,
+      "motivo": "O texto é uma recusa e indica sites de meteorologia, apesar de recusou=false no JSON."
+    }
+  },
+  "rag": {
+    "T19": {
+      "correto": false,
+      "alucinou": false,
+      "motivo": "Resposta incompleta: devolveu só a data ('2026-11-01'), sem o volume de chuva. Não inventou número."
+    }
+  },
+  "lora_rag": {
+    "T30": {
+      "correto": false,
+      "alucinou": false,
+      "motivo": "Resposta incompleta e insegura: citou só o SAMU (192) e omitiu Bombeiros (193) e Defesa Civil (199), que estavam no trecho. Não inventou dado."
+    },
+    "T37": {
+      "correto": false,
+      "alucinou": true,
+      "motivo": "Recusou, mas afirmou que 'a base só cobre 2025 e 2026' e citou 'janeiro a setembro de 2025'. A base só tem 2026: o modelo copiou o padrão das recusas de treino ('A base só cobre 2026, não {ano}') e trocou o ano."
+    }
+  }
+}

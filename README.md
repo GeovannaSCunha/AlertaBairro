@@ -123,6 +123,59 @@ flowchart LR
 5. **Notebooks.** Importe a pasta `databricks/` e rode, nesta ordem: `alertabairro_bronze` → `alertabairro_prata` → `alertabairro_ouro` → `alertabairro_ouro_contrato_mvp`. Para conferir a idempotência, rode `alertabairro_auditoria_bronze`.
 6. **MVP.** Configure `DATABRICKS_HOST`, `DATABRICKS_WAREHOUSE_ID` e `DATABRICKS_TOKEN` no `.env` e suba o site (seção [Como rodar](#como-rodar)). A página `/api/v1/status` deve mostrar `"modo": "databricks"`.
 
+## IA Generativa: assistente com LLM local
+
+O assistente do site responde com um **LLM local** (Qwen2.5-3B no Ollama), usando **RAG** sobre a base do AlertaBairro, **guardrails**, **validação do JSON** e um modelo **especializado por LoRA**. O relatório completo da disciplina, com placar, 5 erros e conclusão, está em [`docs/genai/RELATORIO_GENAI.md`](docs/genai/RELATORIO_GENAI.md).
+
+| Configuração (50 casos de teste) | Acerto nas perguntas com resposta | Alucinação que chega ao usuário | Citou o trecho correto |
+|---|---|---|---|
+| Modelo sem contexto | 5,4% | 16,0% | — |
+| RAG simples | 73,0% | 4,0% | 69,4% |
+| **LoRA + RAG** (`alertabairro-lora`) | **86,5%** | **2,0%** | **91,4%** |
+
+| Pasta | Conteúdo |
+|---|---|
+| `base/` | 97 trechos com id e fonte (`trechos.json`) e tabela de fontes e licenças |
+| `avaliacao/` | 50 casos com gabarito, scripts `recall.py` e `placar.py`, revisão manual e resultados brutos |
+| `treino/` | Gerador dos dados de treino do LoRA, os dados (sem perguntas de teste), métricas e `Modelfile` |
+| `notebooks/` | 01 busca e limiar, 02 LoRA no Colab e 03 placar, todos com as saídas salvas |
+
+### Como reproduzir
+
+Pré-requisitos: Python 3.11+ e, para gerar respostas, [Ollama](https://ollama.com) com GPU (testado numa RTX 3060 de 12 GB).
+
+```bash
+# 1. Busca: recall@1/@3 e curva do limiar (não precisa de LLM nem de credenciais)
+python3 avaliacao/recall.py
+
+# 2. Modelo base
+ollama pull qwen2.5:3b-instruct
+
+# 3. Modelo especializado: rode notebooks/02_lora_colab.ipynb no Google Colab (GPU T4) e baixe o
+#    Qwen2.5-3B-Instruct.Q4_K_M.gguf para modelos/ (a pasta fica fora do Git)
+cp treino/Modelfile.alertabairro modelos/ && cd modelos && ollama create alertabairro-lora -f Modelfile.alertabairro && cd ..
+
+# 4. Placar das três configurações (gera avaliacao/resultados/placar_*.jsonl)
+python3 avaliacao/placar.py --config sem_contexto --modelo qwen2.5:3b-instruct
+python3 avaliacao/placar.py --config rag          --modelo qwen2.5:3b-instruct
+python3 avaliacao/placar.py --config lora_rag     --modelo alertabairro-lora
+python3 avaliacao/placar.py --resumo
+
+# 5. Notebooks de análise (só leem os arquivos acima)
+python3 notebooks/executar_notebook.py notebooks/01_busca_recall.ipynb notebooks/03_placar.ipynb
+```
+
+Os dados de treino podem ser regenerados com `python3 treino/gerar_dados_treino.py`, que usa uma semente fixa e produz o mesmo arquivo.
+
+**Ligar o modelo no site** (no `.env`):
+
+```bash
+LLM_BASE_URL=http://host.docker.internal:11434/v1
+LLM_MODEL=alertabairro-lora
+```
+
+Com o **Docker Desktop**, `host.docker.internal` aponta para o **Windows**. Por isso o modelo precisa estar no Ollama do Windows. Com Docker nativo no Linux, ele aponta para o próprio host. `GET /api/v1/assistente/info` mostra o modelo em uso. Sem LLM, o assistente funciona no modo regras.
+
 ## Testes
 
 ```bash
@@ -187,5 +240,9 @@ backend/            API FastAPI (dados, índice, relatos, assistente), testes e 
   base_conhecimento/ documentos com fonte usados pelo assistente
 frontend/           Next.js (App Router), tema "Céu nublado", mapa Leaflet e gráficos SVG
 observabilidade/    Prometheus, alertas e painel Grafana
-docs/               arquitetura, Databricks, assistente de IA, deploy, Big Data e evidências
+docs/               arquitetura, Databricks, assistente de IA, deploy, Big Data, IA Generativa e evidências
+base/               base de conhecimento exportada (trechos com fonte)
+avaliacao/          casos de teste, recall, placar das três configurações e resultados
+treino/             dados e Modelfile do LoRA
+notebooks/          notebooks de busca, LoRA (Colab) e placar, com saídas
 ```

@@ -146,3 +146,17 @@ def test_subprefeitura_fora_do_top10_e_palavra_inteira(servico):
 def test_chuva_em_data_especifica(servico):
     assert "17,8" in servico.responder("Quanto choveu no dia 01/11?")["resposta"]
     assert servico.responder("Choveu em 15/12?")["recusou"] is True
+
+
+def test_limiar_recusa_sem_chamar_llm(config_snapshot):
+    chamadas = []
+
+    def transporte(url, corpo, cab, timeout):
+        chamadas.append(corpo)
+        return {"choices": [{"message": {"content": json.dumps({"resposta": "inventado", "fontes": [], "recusou": False})}}]}
+
+    servico = ServicoAssistente(FonteDados(config_snapshot), config_snapshot.base_conhecimento_dir,
+                                llm=ClienteLLM("http://localhost:11434/v1", "modelo-teste", transporte=transporte))
+    r = servico.responder("Qual é o nível do rio Tietê?")
+    assert r["recusou"] and r["modo"] == "limiar" and r["motivo_recusa"] == "nao_consta"
+    assert chamadas == []

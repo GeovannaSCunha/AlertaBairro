@@ -10,6 +10,7 @@ type Mensagem = { id: number; autor: "pessoa" | "assistente"; texto: string; res
 function descreverModo(modo: string): string {
   if (modo.startsWith("llm:")) return `Gerado pelo modelo ${modo.slice(4)} com base nos trechos citados.`;
   if (modo === "guardrail") return "Resposta de segurança: o assistente não faz previsões.";
+  if (modo === "limiar") return "Nenhum trecho da base é relevante o bastante para essa pergunta.";
   return "Resposta montada a partir dos dados, sem modelo de linguagem.";
 }
 

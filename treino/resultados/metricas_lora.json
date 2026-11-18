@@ -1,0 +1,31 @@
+{
+  "conjunto": "treino/dados_validacao.jsonl (23 exemplos, fora do treino)",
+  "antes": {
+    "json_valido": 0.8695652173913043,
+    "fontes_exatas": 0.43478260869565216,
+    "recusa_correta": 0.8695652173913043
+  },
+  "depois": {
+    "json_valido": 1.0,
+    "fontes_exatas": 0.9565217391304348,
+    "recusa_correta": 1.0
+  },
+  "treino": {
+    "gpu": "Tesla T4 (Colab)",
+    "minutos": 15.0,
+    "passos": 57,
+    "epocas": 3,
+    "parametros_treinaveis": 29933568,
+    "parametros_totais": 1830055936,
+    "perda_validacao_por_epoca": [
+      0.154,
+      0.0647,
+      0.0598
+    ],
+    "perda_final_treino": 0.1442
+  },
+  "exportacao": {
+    "arquivo": "Qwen2.5-3B-Instruct.Q4_K_M.gguf",
+    "bytes": 1929902688
+  }
+}

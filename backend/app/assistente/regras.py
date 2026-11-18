@@ -241,11 +241,16 @@ def responder(pergunta: str, ctx: dict[str, Any], achados: list[Achado], fontes_
         melhor = achados[0].trecho
         return Resposta(melhor.texto, fontes=[_fonte(melhor.id, melhor.titulo, melhor.fonte)], ferramentas=["buscar_base"])
 
+    return recusa_nao_consta()
+
+
+def recusa_nao_consta(modo: str = "regras") -> Resposta:
     return Resposta(
         "Não consta na base do AlertaBairro. Posso responder sobre alagamentos registrados por "
         "subprefeitura e por mês (jan–set/2026), sobre a chuva histórica (28/10 a 06/11/2026), sobre o "
         "índice experimental e sobre como enviar um relato.",
         recusou=True,
         motivo_recusa="nao_consta",
+        modo=modo,
         ferramentas=["buscar_base"],
     )

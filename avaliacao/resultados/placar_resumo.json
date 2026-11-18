@@ -1,0 +1,47 @@
+{
+  "sem_contexto": {
+    "modelo": "qwen2.5:3b-instruct",
+    "casos": 50,
+    "acerto_geral": 0.24,
+    "acerto_respondiveis": 0.05405405405405406,
+    "recusa_correta": 0.7692307692307693,
+    "alucinacao": 0.16,
+    "recusa_indevida": 0.54,
+    "json_valido": 1.0,
+    "citacao_correta": null,
+    "bloqueado_validacao": 0.0,
+    "revisados_manualmente": 10,
+    "chamadas_ao_modelo": 50,
+    "latencia_media_s": 0.6308
+  },
+  "rag": {
+    "modelo": "qwen2.5:3b-instruct",
+    "casos": 50,
+    "acerto_geral": 0.78,
+    "acerto_respondiveis": 0.7297297297297297,
+    "recusa_correta": 0.9230769230769231,
+    "alucinacao": 0.04,
+    "recusa_indevida": 0.0,
+    "json_valido": 0.8333333333333334,
+    "citacao_correta": 0.6944444444444444,
+    "bloqueado_validacao": 0.14,
+    "revisados_manualmente": 1,
+    "chamadas_ao_modelo": 42,
+    "latencia_media_s": 0.6072
+  },
+  "lora_rag": {
+    "modelo": "alertabairro-lora",
+    "casos": 50,
+    "acerto_geral": 0.88,
+    "acerto_respondiveis": 0.8648648648648649,
+    "recusa_correta": 0.9230769230769231,
+    "alucinacao": 0.02,
+    "recusa_indevida": 0.02,
+    "json_valido": 0.9523809523809523,
+    "citacao_correta": 0.9142857142857143,
+    "bloqueado_validacao": 0.04,
+    "revisados_manualmente": 2,
+    "chamadas_ao_modelo": 42,
+    "latencia_media_s": 0.9072
+  }
+}

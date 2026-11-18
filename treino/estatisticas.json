@@ -1,0 +1,35 @@
+{
+  "semente": 42,
+  "total": 235,
+  "treino": 212,
+  "validacao": 23,
+  "respostas": 190,
+  "recusas": 45,
+  "por_grupo": {
+    "sub": 90,
+    "indice": 28,
+    "mes": 26,
+    "chuva": 20,
+    "kpi": 3,
+    "clima": 3,
+    "doc": 20,
+    "recusa": 45
+  },
+  "limite_similaridade_com_teste": 0.6,
+  "maior_similaridade_mantida": 0.6,
+  "descartadas_por_parecer_teste": [
+    {
+      "pergunta": "Como está Campo Limpo no índice experimental de atenção?",
+      "similaridade": 0.83
+    },
+    {
+      "pergunta": "Como está Sé no índice experimental de atenção?",
+      "similaridade": 0.75
+    },
+    {
+      "pergunta": "Quantas árvores caíram na chuva de 01/11/2026?",
+      "similaridade": 0.71
+    }
+  ],
+  "perguntas_de_teste_no_treino": 0
+}
