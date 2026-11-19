@@ -127,7 +127,7 @@ flowchart LR
 
 O assistente do site responde com um **LLM local** (Qwen2.5-3B no Ollama), usando **RAG** sobre a base do AlertaBairro, **guardrails**, **validação do JSON** e um modelo **especializado por LoRA**. O relatório completo da disciplina, com placar, 5 erros e conclusão, está em [`docs/genai/RELATORIO_GENAI.md`](docs/genai/RELATORIO_GENAI.md).
 
-**Vídeo de demonstração** (3 min 18 s, com legendas): [`docs/genai/video/AlertaBairro_GenAI_demo.mp4`](docs/genai/video/AlertaBairro_GenAI_demo.mp4)
+**Vídeo de demonstração** (3 min 18 s, com legendas): https://youtu.be/2nwGPhPQyGQ (cópia em [`docs/genai/video/AlertaBairro_GenAI_demo.mp4`](docs/genai/video/AlertaBairro_GenAI_demo.mp4)). O guia de entrega para o professor, com cada requisito e onde ele está, é o [`docs/genai/AlertaBairro_Entrega_GenAI.pdf`](docs/genai/AlertaBairro_Entrega_GenAI.pdf).
 
 | Configuração (50 casos de teste) | Acerto nas perguntas com resposta | Alucinação que chega ao usuário | Citou o trecho correto |
 |---|---|---|---|
