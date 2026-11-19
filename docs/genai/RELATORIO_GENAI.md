@@ -3,7 +3,7 @@
 **Global Solution FIAP 2026.2, tema CitizenTech, disciplina Generative AI for Engineering**
 
 Repositório: https://github.com/GeovannaSCunha/AlertaBairro
-Vídeo de demonstração (3 min 18 s, com legendas): [AlertaBairro_GenAI_demo.mp4](https://github.com/GeovannaSCunha/AlertaBairro/blob/main/docs/genai/video/AlertaBairro_GenAI_demo.mp4)
+Vídeo de demonstração (3 min 18 s, com legendas): **https://youtu.be/2nwGPhPQyGQ** (cópia no repositório: [`docs/genai/video/AlertaBairro_GenAI_demo.mp4`](video/AlertaBairro_GenAI_demo.mp4))
 
 ---
 
@@ -176,7 +176,7 @@ Tudo roda na máquina da equipe: modelo, base e relatos. Nenhum dado pessoal sai
 
 **Links:**
 - Repositório: https://github.com/GeovannaSCunha/AlertaBairro
-- Vídeo: https://github.com/GeovannaSCunha/AlertaBairro/blob/main/docs/genai/video/AlertaBairro_GenAI_demo.mp4
+- Vídeo: https://youtu.be/2nwGPhPQyGQ (cópia em `docs/genai/video/AlertaBairro_GenAI_demo.mp4`)
 - Como reproduzir: seção "IA Generativa" do [README](../../README.md#ia-generativa-assistente-com-llm-local)
 
 ### Evidências
